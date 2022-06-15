@@ -18,3 +18,29 @@
   border: none;
   width: 30px;
 }
+
+.lines-settings {
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.lines-settings h2 {
+  font-size: 2rem;
+}
+
+.add-line-btn {
+  padding: 1rem;
+  color: white;
+  border: none;
+  background-color: var(--brand-clr);
+}
+.lines-toolbar h2 {
+  color: gray;
+}
+
+.lines-toolbar .curr-line {
+  color: var(--main-txt-clr);
+}
+.line-toolbar-item {
+  margin-inline-start: 1rem;
+}

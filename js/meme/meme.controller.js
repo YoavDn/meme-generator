@@ -23,12 +23,11 @@ function renderMeme() {
   image.src = img.url
 }
 
-function selectEl(e) {
-  console.log(e.offsetX, e.offsetY)
-
-  const elIdx = getElIdx(e.offsetX, e.offsetY)
-  updateInputPlaceholder(elIdx)
-  setSelectLine(elIdx)
+function onSelectEl(e) {
+  const idx = getElIdx(e.offsetX, e.offsetY)
+  updateInputPlaceholder(idx)
+  setSelectLine(idx)
+  updateDomSelectedLine(idx)
 }
 
 function updateMeme() {
@@ -68,6 +67,9 @@ function onUpdateMemeText(text) {
 
 function onAddLine() {
   addTextLine()
+  const lineCount = getMeme().lines.length
+  updateEditorElements(lineCount)
+
   renderMeme()
 }
 
@@ -84,6 +86,7 @@ function getElIdx(x, y) {
 
 function updateInputPlaceholder(idx) {
   const elTextInput = document.querySelector('.text-input')
+
   const meme = getMeme()
   elTextInput.value = ''
   elTextInput.placeholder = meme.lines[idx].txt
@@ -93,4 +96,12 @@ function onUpdateFontSize(el) {
   const diff = el.dataset.font
   updateTextSize(diff)
   renderMeme()
+}
+
+function updateEditorElements(linesCount) {
+  document.querySelector('.lines-count').innerText = linesCount
+}
+function updateDomSelectedLine(idx) {
+  const txt = idx + 1
+  document.querySelector('.curr-line').innerText = txt
 }
