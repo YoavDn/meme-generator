@@ -11,7 +11,7 @@
   <body onload1="init()">
     <header>
       <div class="main-header flex align-center">
-        <div class="logo flex align-center">
+        <div onclick="onShowGallery()"" class="logo flex align-center">
           <img class="logo-svg" src="images/logo.svg" alt="" />
           <h2>MemeGen</h2>
         </div>
@@ -26,6 +26,7 @@
     </header>
 
     <section class="gallery-section">
+      <h2 class="search-title">Search popular tamplates</h2>
       <form onsubmit1="onSearch()" class="search-form flex">
         <input type="search" placeholder="Search..." class="input-search" />
         <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>

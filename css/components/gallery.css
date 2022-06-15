@@ -7,13 +7,21 @@
   justify-content: flex-start;
 }
 
+.search-title {
+  font-weight: 700;
+  font-size: 2.8rem;
+  color: var(--main-txt-clr);
+  text-align: center;
+  margin-block: 2rem;
+}
+
 .search-form {
-  margin-block: 4rem;
+  margin-bottom: 3rem;
   justify-content: center;
 }
 .input-search {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border: solid var(--main-txt-clr) 1px;
+  border: solid var(--editor-txt-clr) 0.4px;
   padding: 1rem;
 }
 
@@ -22,7 +30,7 @@
 
   background-color: var(--brand-clr);
   color: white;
-  border: solid var(--main-txt-clr) 1px;
+  border: solid var(--editor-txt-clr) 0.4px;
 
-  padding: 0 2rem;
+  padding: 0 1.4rem;
 }
