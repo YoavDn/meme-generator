@@ -9,6 +9,8 @@
 @import url(components/editor.css);
 @import url(components/meme-editor.css);
 @import url(components/text-editor.css);
+@import url(components/gallery.css);
+@import url(components/card.css);
 
 /* layout */
 @import url(layout/layout.css);

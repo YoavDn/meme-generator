@@ -24,7 +24,21 @@
         </nav>
       </div>
     </header>
-    <section class="meme-editor flex">
+
+    <section class="gallery-section">
+      <form onsubmit1="onSearch()" class="search-form flex">
+        <input type="search" placeholder="Search..." class="input-search" />
+        <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+
+      <div onclick="onImgSelect(event)" class="gallery-container flex">
+        <div class="card" data-img-id="1"><img src="images/3.jpg" alt="" /></div>
+        <div class="card" data-img-id="2"><img src="images/5.jpg" alt="" /></div>
+        <div class="card" data-img-id="3"><img src="images/6.jpg" alt="" /></div>
+      </div>
+    </section>
+
+    <section class="meme-editor flex hidden">
       <div class="canvas-container flex align-center">
         <canvas onclick="selectEl(event)" id="canvas"></canvas>
       </div>
@@ -51,5 +65,7 @@
 
     <script src="/js/meme/meme.servise.js"></script>
     <script src="/js/meme/meme.controller.js"></script>
+    <script src="/js/gallery/gallery.controller.js"></script>
+    <script src="/js/gallery/gallery.service.js"></script>
   </body>
 </html>

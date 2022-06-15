@@ -1,0 +1,28 @@
+.gallery-section {
+  margin: auto;
+  width: 90%;
+}
+
+.gallery-container {
+  justify-content: flex-start;
+}
+
+.search-form {
+  margin-block: 4rem;
+  justify-content: center;
+}
+.input-search {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: solid var(--main-txt-clr) 1px;
+  padding: 1rem;
+}
+
+.search-btn {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  background-color: var(--brand-clr);
+  color: white;
+  border: solid var(--main-txt-clr) 1px;
+
+  padding: 0 2rem;
+}
