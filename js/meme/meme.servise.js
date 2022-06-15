@@ -55,7 +55,7 @@ function updateTextSize(diff) {
 }
 
 function moveText(diff) {
-  const newPos = diff === 'up' ? 5 : -5
+  const newPos = diff === 'up' ? -10 : 10
 
   const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
 
