@@ -16,7 +16,7 @@ function renderMeme() {
   const [imgSrc] = imgsSrc.filter(img => img.id === meme.selectedImgId)
 
   const image = new Image(500, 500)
-  image.onload = drawImageActualSize
+  image.onload = updateMeme
 
   image.src = imgSrc.url
 }
@@ -25,10 +25,11 @@ function selectEl(e) {
   console.log(e.offsetX, e.offsetY)
 
   const elIdx = getElIdx(e.offsetX, e.offsetY)
-  console.log(elIdx)
+  updateInputPlaceholder(elIdx)
+  setSelectLine(elIdx)
 }
 
-function drawImageActualSize() {
+function updateMeme() {
   canvas.width = this.naturalWidth
   canvas.height = this.naturalHeight
 
@@ -45,8 +46,8 @@ function drawText() {
     const posY = 70 * (idx + 1)
     ctx.textAlign = 'center'
     ctx.font = `${line.size}px impact`
-    ctx.strokeStyle = 'black'
-    ctx.text
+    ctx.strokeStyle = line.color
+
     ctx.lineWidth = 8
     ctx.strokeText(line.txt, middleX, posY)
     ctx.fillStyle = 'white'
@@ -77,4 +78,11 @@ function getElIdx(x, y) {
   })
 
   return elIdx === -1 ? null : elIdx
+}
+
+function updateInputPlaceholder(idx) {
+  const elTextInput = document.querySelector('.text-input')
+  const meme = getMeme()
+  elTextInput.value = ''
+  elTextInput.placeholder = meme.lines[idx].txt
 }

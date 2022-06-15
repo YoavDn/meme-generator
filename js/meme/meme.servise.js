@@ -8,7 +8,7 @@ var gMeme = {
   selectedImgId: 2,
   selectedLineIdx: 0,
 
-  lines: [{ txt: 'BITCH', size: 40, align: 'center' }],
+  lines: [{ txt: 'BITCH', size: 40, align: 'center', color: 'black' }],
 }
 
 function getMeme() {
@@ -30,5 +30,10 @@ function setTextCoords(idx, startX, textWidth, startY) {
 }
 
 function addTextLine() {
-  gMeme.lines.push({ txt: 'Text', size: 40, align: 'center' })
+  gMeme.lines.push({ txt: 'Text', size: 40, align: 'center', color: 'black' })
+}
+
+function setSelectLine(idx) {
+  if (idx === null) return
+  gMeme.selectedLineIdx = idx
 }
