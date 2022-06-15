@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MemeGen || Create your first meme today</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://kit.fontawesome.com/8b6b9efe1e.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <div class="main-header flex align-center">
+        <div class="logo flex align-center">
+          <h2>MemeGen</h2>
+          <img class="logo-svg" src="images/logo.svg" alt="" />
+        </div>
+        <nav class="nav">
+          <ul class="flex">
+            <li class="nav-link">Memes</li>
+            <li class="nav-link">Gallery</li>
+            <li class="nav-link">About</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="meme-editor flex">
+      <div class="canvas-container">
+        <canvas id="canvas"></canvas>
+      </div>
+      <div class="editor flex-column">
+        <div class="editor-layout">
+          <h2>Edit Text Lines</h2>
+          <div class="text-editor flex-column">
+            <div class="toolbar flex">
+              <select name="font" id="">
+                <option value="">Font</option>
+                <option value="">font</option>
+                <option value="">this</option>
+              </select>
+              <button class="toolbar-btn text-size text-size-big"><i class="fa-solid fa-font"></i> +</button>
+              <button class="toolbar-btn text-size text-size-small"><i class="fa-solid fa-font"></i> -</button>
+            </div>
+
+            <input type="text" placeholder="Text line" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="/js/editor/editor.controller.js"></script>
+    <script src="/js/editor/editor.servise.js"></script>
+  </body>
+</html>

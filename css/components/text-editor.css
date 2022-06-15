@@ -1,0 +1,20 @@
+.text-editor input {
+  line-height: 3rem;
+  font-size: 1.6rem;
+  border: none;
+}
+
+.toolbar {
+  border-bottom: solid var(--main-txt-clr) 1px;
+}
+
+.toolbar select {
+  border: none;
+  height: 3rem;
+  flex-basis: 30%;
+}
+
+.toolbar-btn {
+  border: none;
+  width: 30px;
+}
