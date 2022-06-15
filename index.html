@@ -18,7 +18,7 @@
         <nav class="nav">
           <ul class="flex">
             <li class="nav-link">Memes</li>
-            <li class="nav-link">Gallery</li>
+            <li class="nav-link" onclick="onShowGallery()">Gallery</li>
             <li class="nav-link">About</li>
           </ul>
         </nav>
@@ -56,30 +56,37 @@
               </button>
             </div>
           </div>
-          <div class="text-editor flex-column">
+          <div class="text-editor shadow flex-column">
             <div class="toolbar flex">
-              <select name="font" id="">
+              <select class="text-toolbar-item" name="font" id="">
                 <option value="">Font</option>
                 <option value="">font</option>
                 <option value="">this</option>
               </select>
-              <button class="toolbar-btn text-size text-size-big" data-font="big" onclick="onUpdateFontSize(this)">
+              <button
+                class="text-toolbar-item toolbar-btn text-size text-size-big"
+                data-font="big"
+                onclick="onUpdateFontSize(this)"
+              >
                 <i class="fa-solid fa-font"></i> +
               </button>
-              <button class="toolbar-btn text-size text-size-small" data-font="small" onclick="onUpdateFontSize(this)">
+              <button
+                class="text-toolbar-item toolbar-btn text-size text-size-small"
+                data-font="small"
+                onclick="onUpdateFontSize(this)"
+              >
                 <i class="fa-solid fa-font"></i> -
               </button>
             </div>
-
             <input class="text-input" oninput="onUpdateMemeText(this.value)" type="text" placeholder="Text Top" />
-            <div class="move-txt-btns flex">
-              <button data-move-line="up" class="move-txt-btn shadow" onclick="onMoveText(this)">
-                <i class="fa-solid fa-arrow-up"></i>
-              </button>
-              <button data-move-line="down" class="move-txt-btn shadow" onclick="onMoveText(this)">
-                <i class="fa-solid fa-arrow-down"></i>
-              </button>
-            </div>
+          </div>
+          <div class="move-txt-btns flex">
+            <button data-move-line="up" class="move-txt-btn shadow" onclick="onMoveText(this)">
+              <i class="fa-solid fa-arrow-up"></i>
+            </button>
+            <button data-move-line="down" class="move-txt-btn shadow" onclick="onMoveText(this)">
+              <i class="fa-solid fa-arrow-down"></i>
+            </button>
           </div>
         </div>
       </div>

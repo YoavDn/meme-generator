@@ -1,12 +1,19 @@
+.text-editor {
+  border: solid rgb(203, 203, 203) 1px;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
 .text-editor input {
   line-height: 3rem;
   font-size: 1.6rem;
   border: none;
-  margin-bottom: 3rem;
+
+  padding: 1rem 0;
 }
 
 .toolbar {
-  border-bottom: solid var(--main-txt-clr) 1px;
+  box-shadow: 0px 1px 0px #dbdbdb;
 }
 
 .toolbar select {
@@ -27,13 +34,19 @@
 
 .lines-settings h2 {
   font-size: 2rem;
+  color: var(--editor-txt-clr);
+  font-weight: 400;
 }
 
 .line-feature-btn {
   padding: 1rem;
-  color: white;
+  color: var(--editor-txt-clr);
   border: none;
-  background-color: var(--brand-clr);
+  background: none;
+}
+
+.line-feature-btn:hover {
+  color: var(--main-txt-clr);
 }
 .lines-toolbar h2 {
   color: gray;
@@ -44,4 +57,11 @@
 }
 .line-toolbar-item {
   margin-inline-start: 1rem;
+}
+.toolbar {
+  padding: 1rem 0;
+}
+
+.text-toolbar-item {
+  margin-inline-end: 1rem;
 }

@@ -61,3 +61,9 @@ function moveText(diff) {
 
   selectedLine.startY += newPos
 }
+
+function emptyElsFromMeme() {
+  gMeme.lines.length = 1
+  updateEditorElements(gMeme.lines.length)
+  updateDomSelectedLine()
+}

@@ -1,5 +1,6 @@
 :root {
   --brand-clr: #5b58f0;
   --main-txt-clr: #343434;
-  --editor-bg: #e5e5e5;
+  --editor-bg: #f8f8f8;
+  --editor-txt-clr: rgba(114, 114, 114, 1);
 }

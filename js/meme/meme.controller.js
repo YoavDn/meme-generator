@@ -50,7 +50,7 @@ function drawText() {
     ctx.font = `${line.size}px impact`
     ctx.strokeStyle = line.color
 
-    ctx.lineWidth = 8
+    ctx.lineWidth = 4
     ctx.strokeText(line.txt, middleX, line.startY)
     ctx.fillStyle = 'white'
     ctx.fillText(line.txt, middleX, line.startY)
@@ -102,7 +102,7 @@ function onUpdateFontSize(el) {
 function updateEditorElements(linesCount) {
   document.querySelector('.lines-count').innerText = linesCount
 }
-function updateDomSelectedLine(idx) {
+function updateDomSelectedLine(idx = 0) {
   const txt = idx + 1
   document.querySelector('.curr-line').innerText = txt
 }

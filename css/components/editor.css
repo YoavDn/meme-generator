@@ -1,16 +1,19 @@
 .editor {
   background-color: var(--editor-bg);
+  border: solid rgb(203, 203, 203) 1px;
 }
 
 .move-txt-btns {
   margin: auto;
+  margin-top: 3rem;
   width: 70%;
   justify-content: space-evenly;
 }
 
 .move-txt-btn {
   background-color: var(--brand-clr);
-  color: white;
+  font-size: 1.5rem;
   border: none;
+  color: white;
   padding: 2rem;
 }
