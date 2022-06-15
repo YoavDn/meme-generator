@@ -12,3 +12,7 @@
 
 /* layout */
 @import url(layout/layout.css);
+
+/* canvas  */
+
+@import url(canvas/canvas.css);
