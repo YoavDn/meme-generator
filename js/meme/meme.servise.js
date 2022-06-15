@@ -2,13 +2,17 @@ var gImgs = [
   { id: 1, url: 'images/1.jpg' },
   { id: 2, url: 'images/2.jpg' },
   { id: 3, url: 'images/3.jpg' },
+  { id: 4, url: 'images/4.jpg' },
+  { id: 5, url: 'images/5.jpg' },
+  { id: 6, url: 'images/6.jpg' },
+  { id: 7, url: 'images/7.jpg' },
 ]
 
 var gMeme = {
   selectedImgId: 2,
   selectedLineIdx: 0,
 
-  lines: [{ txt: 'BITCH', size: 40, align: 'center', color: 'black' }],
+  lines: [{ txt: 'Hellow world', size: 40, align: 'center', color: 'black' }],
 }
 
 function getMeme() {
@@ -36,4 +40,16 @@ function addTextLine() {
 function setSelectLine(idx) {
   if (idx === null) return
   gMeme.selectedLineIdx = idx
+}
+
+function setMeme(imgId) {
+  gMeme.selectedImgId = imgId
+  init()
+}
+
+function updateTextSize(diff) {
+  const newSize = diff === 'big' ? 2 : -2
+
+  const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+  selectedLine.size += newSize
 }

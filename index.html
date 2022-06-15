@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="css/main.css" />
     <script src="https://kit.fontawesome.com/8b6b9efe1e.js" crossorigin="anonymous"></script>
   </head>
-  <body onload="init()">
+  <body onload1="init()">
     <header>
       <div class="main-header flex align-center">
         <div class="logo flex align-center">
-          <h2>MemeGen</h2>
           <img class="logo-svg" src="images/logo.svg" alt="" />
+          <h2>MemeGen</h2>
         </div>
         <nav class="nav">
           <ul class="flex">
@@ -32,13 +32,13 @@
       </form>
 
       <div onclick="onImgSelect(event)" class="gallery-container flex">
-        <div class="card" data-img-id="1"><img src="images/3.jpg" alt="" /></div>
-        <div class="card" data-img-id="2"><img src="images/5.jpg" alt="" /></div>
-        <div class="card" data-img-id="3"><img src="images/6.jpg" alt="" /></div>
+        <div class="card" data-img-id="1"><img src="images/1.jpg" alt="" /></div>
+        <div class="card" data-img-id="2"><img src="images/2.jpg" alt="" /></div>
+        <div class="card" data-img-id="3"><img src="images/3.jpg" alt="" /></div>
       </div>
     </section>
 
-    <section class="meme-editor flex hidden">
+    <section class="editor-section flex hidden">
       <div class="canvas-container flex align-center">
         <canvas onclick="selectEl(event)" id="canvas"></canvas>
       </div>
@@ -52,20 +52,24 @@
                 <option value="">font</option>
                 <option value="">this</option>
               </select>
-              <button class="toolbar-btn text-size text-size-big"><i class="fa-solid fa-font"></i> +</button>
-              <button class="toolbar-btn text-size text-size-small"><i class="fa-solid fa-font"></i> -</button>
+              <button class="toolbar-btn text-size text-size-big" data-font="big" onclick="onUpdateFontSize(this)">
+                <i class="fa-solid fa-font"></i> +
+              </button>
+              <button class="toolbar-btn text-size text-size-small" data-font="small" onclick="onUpdateFontSize(this)">
+                <i class="fa-solid fa-font"></i> -
+              </button>
             </div>
 
             <input class="text-input" oninput="onUpdateMemeText(this.value)" type="text" placeholder="Text Top" />
-            <button onclick="onAddLine()">add Text line</button>
+            <button class="add-line-btn" onclick="onAddLine()">add Text line</button>
           </div>
         </div>
       </div>
     </section>
 
-    <script src="/js/meme/meme.servise.js"></script>
-    <script src="/js/meme/meme.controller.js"></script>
-    <script src="/js/gallery/gallery.controller.js"></script>
     <script src="/js/gallery/gallery.service.js"></script>
+    <script src="/js/meme/meme.servise.js"></script>
+    <script src="/js/gallery/gallery.controller.js"></script>
+    <script src="/js/meme/meme.controller.js"></script>
   </body>
 </html>

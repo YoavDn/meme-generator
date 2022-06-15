@@ -8,3 +8,11 @@
   font-weight: 400;
   margin-bottom: 3rem;
 }
+
+.add-line-btn {
+  margin-top: 2rem;
+  padding: 1rem;
+  color: white;
+  border: none;
+  background-color: var(--brand-clr);
+}

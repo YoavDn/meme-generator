@@ -12,13 +12,15 @@ function renderMeme() {
   ctx = canvas.getContext('2d')
 
   const meme = getMeme()
+
   const imgsSrc = getImgs()
-  const [imgSrc] = imgsSrc.filter(img => img.id === meme.selectedImgId)
+
+  const [img] = imgsSrc.filter(img => img.id === +meme.selectedImgId)
 
   const image = new Image(500, 500)
   image.onload = updateMeme
 
-  image.src = imgSrc.url
+  image.src = img.url
 }
 
 function selectEl(e) {
@@ -85,4 +87,10 @@ function updateInputPlaceholder(idx) {
   const meme = getMeme()
   elTextInput.value = ''
   elTextInput.placeholder = meme.lines[idx].txt
+}
+
+function onUpdateFontSize(el) {
+  const diff = el.dataset.font
+  updateTextSize(diff)
+  renderMeme()
 }

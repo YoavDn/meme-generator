@@ -5,11 +5,12 @@ header {
 
 .logo h2 {
   font-size: 2.5rem;
+  margin-inline-start: 1rem;
+  color: var(-main-txt-clr);
 }
 
 .logo-svg {
   width: 30px;
-  margin-inline-start: 1rem;
 }
 
 .main-header {
@@ -26,6 +27,7 @@ header {
 .nav-link {
   cursor: pointer;
   margin-inline-start: 5rem;
+  color: var(-main-txt-clr);
 }
 
 .nav-link-active {
