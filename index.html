@@ -48,10 +48,10 @@
             <h2>Edit Text Lines</h2>
             <div class="lines-toolbar flex align-center">
               <h2 class="line-toolbar-item"><span class="curr-line">1</span>/ <span class="lines-count">1</span></h2>
-              <button class="line-toolbar-item add-line-btn" onclick="onAddLine()">
+              <button class="line-toolbar-item line-feature-btn" onclick="onAddLine()">
                 <i class="fa-solid fa-plus"></i>
               </button>
-              <button class="line-toolbar-item add-line-btn" onclick="onAddLine()">
+              <button class="line-toolbar-item line-feature-btn" onclick="onAddLine()">
                 <i class="fa-solid fa-trash-can"></i>
               </button>
             </div>
@@ -72,6 +72,14 @@
             </div>
 
             <input class="text-input" oninput="onUpdateMemeText(this.value)" type="text" placeholder="Text Top" />
+            <div class="move-txt-btns flex">
+              <button data-move-line="up" class="move-txt-btn shadow" onclick="onMoveText(this)">
+                <i class="fa-solid fa-arrow-up"></i>
+              </button>
+              <button data-move-line="down" class="move-txt-btn shadow" onclick="onMoveText(this)">
+                <i class="fa-solid fa-arrow-down"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>

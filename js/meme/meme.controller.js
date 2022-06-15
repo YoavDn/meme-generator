@@ -44,19 +44,20 @@ function drawText() {
   const middleX = canvas.width / 2
 
   meme.lines.forEach((line, idx) => {
-    const posY = 70 * (idx + 1)
+    // const posY = line.startY * (idx + 1)
+
     ctx.textAlign = 'center'
     ctx.font = `${line.size}px impact`
     ctx.strokeStyle = line.color
 
     ctx.lineWidth = 8
-    ctx.strokeText(line.txt, middleX, posY)
+    ctx.strokeText(line.txt, middleX, line.startY)
     ctx.fillStyle = 'white'
-    ctx.fillText(line.txt, middleX, posY)
+    ctx.fillText(line.txt, middleX, line.startY)
 
     const textWidth = ctx.measureText(line.txt).width + ctx.lineWidth
     const startX = middleX - textWidth / 2
-    setTextCoords(idx, startX, textWidth, posY)
+    setTextCoords(idx, startX, textWidth, line.startY)
   })
 }
 
@@ -104,4 +105,11 @@ function updateEditorElements(linesCount) {
 function updateDomSelectedLine(idx) {
   const txt = idx + 1
   document.querySelector('.curr-line').innerText = txt
+}
+
+function onMoveText(el) {
+  const diff = el.dataset.moveLine
+
+  moveText(diff)
+  renderMeme()
 }

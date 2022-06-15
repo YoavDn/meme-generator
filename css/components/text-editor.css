@@ -2,6 +2,7 @@
   line-height: 3rem;
   font-size: 1.6rem;
   border: none;
+  margin-bottom: 3rem;
 }
 
 .toolbar {
@@ -28,7 +29,7 @@
   font-size: 2rem;
 }
 
-.add-line-btn {
+.line-feature-btn {
   padding: 1rem;
   color: white;
   border: none;
