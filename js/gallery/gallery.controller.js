@@ -14,9 +14,10 @@ function onImgSelect(e) {
   setImg(imgId)
 }
 
-function renderCards() {
+function renderCards(imgs = getImgs()) {
   const elCardsContainer = document.querySelector('.gallery-container')
-  const imgs = getImgs()
+
+  // const imgs = getImgs()
 
   elCardsContainer.innerHTML = imgs
     .map((img, idx) => {
@@ -32,4 +33,21 @@ function onShowGallery() {
   elGallerySection.classList.remove('hidden')
   elEditorSection.classList.add('hidden')
   emptyElsFromMeme()
+  renderCards()
+}
+
+function onSearch(e) {
+  e.preventDefault()
+
+  const searchValue = document.querySelector('.input-search').value
+
+  document.querySelector('.input-search').value = ''
+  const filteredCards = filterCardsBySearch(searchValue)
+
+  if (filteredCards === null) {
+    alert("couldn't find meme")
+  } else {
+    console.log(filteredCards)
+    renderCards(filteredCards)
+  }
 }

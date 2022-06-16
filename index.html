@@ -27,12 +27,12 @@
 
     <section class="gallery-section">
       <h2 class="search-title">Search popular tamplates</h2>
-      <form onsubmit1="onSearch()" class="search-form flex">
+      <form onsubmit="onSearch(event)" class="search-form flex">
         <input type="search" placeholder="Search..." class="input-search" />
-        <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
 
-      <div onclick="onImgSelect(event)" class="gallery-container flex">
+      <div  onclick="onImgSelect(event)" class="gallery-container flex">
         <!-- <div class="card" data-img-id="1"><img src="images/1.jpg" alt="" /></div>
         <div class="card" data-img-id="2"><img src="images/2.jpg" alt="" /></div>
         <div class="card" data-img-id="3"><img src="images/3.jpg" alt="" /></div> -->
@@ -79,9 +79,9 @@
               >
                 <i class="fa-solid fa-font"></i> -
               </button>
-              <button class="text-toolbar-item toolbar-btn">
+              <button class="text-toolbar-item toolbar-btn change-color-btn">
                 <input  onchange="onChangeTextColor(this.value)" id="input-color"class="input-change-color" type="color">
-                <label  for="input-color"><i class="fa-solid fa-palette"></i></label>
+                <label   for="input-color"><i class="fa-solid fa-palette"></i></label>
               </button>
             </div>
             <input class="text-input" oninput="onUpdateMemeText(this.value)" type="text" placeholder="Text Top" />
