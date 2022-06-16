@@ -1,13 +1,31 @@
 @media screen and (max-width: 768px) {
+  .editor-layout {
+    width: 600px;
+  }
   .editor-section {
     flex-direction: column;
     height: 0;
   }
 
-  #canvas {
-    width: 400px;
-    height: 400px;
+  .text-editor {
+    flex-basis: 70%;
   }
+  .editor-controller {
+    flex-direction: row;
+    margin-bottom: 3rem;
+    justify-content: space-between;
+  }
+  .move-txt-btns {
+    flex-basis: 30%;
+    justify-content: flex-end;
+  }
+
+  .move-txt-btn {
+    margin-inline-end: 1rem;
+    padding: 1rem;
+    width: 40px;
+  }
+
   .editor {
     width: 100%;
   }
@@ -19,5 +37,20 @@
   }
   .canvas-container {
     margin-bottom: 3rem;
+  }
+}
+
+@media screen and (max-width: 608px) {
+  .editor-layout {
+    width: 400px;
+  }
+  .logo h2 {
+    font-size: 2rem;
+    margin-inline-start: 1rem;
+    color: var(-main-txt-clr);
+  }
+
+  .nav-link {
+    margin-inline-start: 2rem;
   }
 }

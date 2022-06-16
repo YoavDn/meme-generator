@@ -1,23 +1,39 @@
 'use strict'
 
-var canvas
-var ctx
+var gCanvas
+var gCtx
+var lastX
+var lastY
 
 function init() {
+  gCanvas = document.getElementById('canvas')
+  gCtx = gCanvas.getContext('2d')
   renderMeme()
+  handleTouchEvent(gCanvas)
+}
+
+function handleTouchEvent(canvas) {
+  canvas.ontouchstart = function (e) {
+    e.preventDefault()
+    let rect = this.getBoundingClientRect()
+
+    lastX = e.touches[0].clientX - rect.left
+    lastY = e.touches[0].clientY - rect.top
+
+    const idx = getElIdx(lastX, lastY)
+
+    updateInputPlaceholder(idx)
+    setSelectLine(idx)
+    updateDomSelectedLine(idx)
+  }
 }
 
 function renderMeme() {
-  canvas = document.getElementById('canvas')
-  ctx = canvas.getContext('2d')
-
   const meme = getMeme()
-
   const imgsSrc = getImgs()
-
   const [img] = imgsSrc.filter(img => img.id === +meme.selectedImgId)
 
-  const image = new Image(500, 500)
+  const image = new Image()
   image.onload = updateMeme
 
   image.src = img.url
@@ -31,32 +47,31 @@ function onSelectEl(e) {
 }
 
 function updateMeme() {
-  canvas.width = this.naturalWidth
-  canvas.height = this.naturalHeight
+  gCanvas.width = this.naturalWidth
+  gCanvas.height = this.naturalHeight
 
-  ctx.drawImage(this, 0, 0)
-  ctx.drawImage(this, 0, 0, this.width, this.height)
+  gCtx.drawImage(this, 0, 0)
+  gCtx.drawImage(this, 0, 0, this.width, this.height)
   drawText()
 }
 
 function drawText() {
   const meme = getMeme()
-  const middleX = canvas.width / 2
+  const middleX = gCanvas.width / 2
 
   meme.lines.forEach((line, idx) => {
-    // const posY = line.startY * (idx + 1)
+    gCtx.textAlign = 'center'
+    gCtx.font = `${line.size}px impact`
+    gCtx.strokeStyle = line.color
 
-    ctx.textAlign = 'center'
-    ctx.font = `${line.size}px impact`
-    ctx.strokeStyle = line.color
+    gCtx.lineWidth = 4
+    gCtx.strokeText(line.txt, middleX, line.startY)
+    gCtx.fillStyle = 'white'
+    gCtx.fillText(line.txt, middleX, line.startY)
 
-    ctx.lineWidth = 4
-    ctx.strokeText(line.txt, middleX, line.startY)
-    ctx.fillStyle = 'white'
-    ctx.fillText(line.txt, middleX, line.startY)
-
-    const textWidth = ctx.measureText(line.txt).width + ctx.lineWidth
+    const textWidth = gCtx.measureText(line.txt).width + gCtx.lineWidth
     const startX = middleX - textWidth / 2
+    //update text postion on canvas
     setTextCoords(idx, startX, textWidth, line.startY)
   })
 }
@@ -86,6 +101,7 @@ function getElIdx(x, y) {
 }
 
 function updateInputPlaceholder(idx) {
+  if (idx === null) return
   const elTextInput = document.querySelector('.text-input')
 
   const meme = getMeme()
@@ -112,4 +128,16 @@ function onMoveText(el) {
 
   moveText(diff)
   renderMeme()
+}
+
+function getImgSize() {
+  if (window.matchMedia('screen and (max-width:540px)').matches) {
+    return {
+      width: 400,
+    }
+    // it matches
+  } else {
+    // does not match
+    width: 500
+  }
 }
