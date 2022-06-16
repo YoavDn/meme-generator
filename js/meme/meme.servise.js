@@ -19,10 +19,6 @@ function getMeme() {
   return gMeme
 }
 
-function getImgs() {
-  return gImgs
-}
-
 function updateMemeText(text) {
   gMeme.lines[gMeme.selectedLineIdx].txt = text
 }
