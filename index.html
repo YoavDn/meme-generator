@@ -18,8 +18,8 @@
         </div>
         <nav class="nav">
           <ul class="flex">
-            <li class="nav-link" onclick="onShowMemes()">Memes</li>
-            <li class="nav-link" onclick="onShowGallery()">Gallery</li>
+            <li class="nav-link gallery-link " onclick="onShowGallery()">Gallery</li>
+            <li class="nav-link memes-link" onclick="onShowMemes()">Memes</li>
             <li class="nav-link">About</li>
           </ul>
         </nav>
@@ -27,7 +27,13 @@
     </header>
 
     <section class="gallery-section">
+          <form  class="shadow"id="upload">
+	          <label for="file">Upload <span><i class="fa-solid fa-arrow-up-from-bracket"></i></span></label>
+	          <input type="file" id="file"  onchange="handleUpload(event)" accept="image/*">
+        </form>
+
       <h2 class="search-title">Search popular tamplates</h2>
+  
       <form onsubmit="onSearch(event)" class="search-form flex">
         <input type="search" placeholder="Search..." class="input-search" />
         <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>

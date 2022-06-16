@@ -33,12 +33,14 @@ function handleTouchEvent(canvas) {
 function renderMeme() {
   let meme = getMeme()
   const imgsSrc = getImgs()
-  const [img] = imgsSrc.filter(img => img.id === +meme.selectedImgId)
+  let [imgObj] = imgsSrc.filter(img => img.id === +meme.selectedImgId)
+
+  if (!imgObj) imgObj = meme // when the meme is uploaded from file system
 
   const image = new Image()
   image.onload = updateMeme
 
-  image.src = img.url
+  image.src = imgObj.url
 }
 
 function onSelectEl(e) {
@@ -52,16 +54,17 @@ function updateMeme() {
   let width = this.naturalWidth
   let height = this.naturalHeight
 
-  let heightRatio = (height * gCanvas.width) / width // calculate height ratio
-
   if (gIsOnMobile) {
-    width = 300
+    gCanvas.width = 300
+  } else {
+    gCanvas.width = 500
   }
 
-  gCanvas.width = 500
+  let heightRatio = (height * gCanvas.width) / width // calculate height ratio
   gCanvas.height = heightRatio
 
-  gCtx.drawImage(this, 0, 0, gCanvas.width, heightRatio)
+  gCtx.drawImage(this, 0, 0, gCanvas.width, gCanvas.height)
+
   drawText()
 }
 
@@ -194,4 +197,28 @@ function downloadImg() {
   var download = document.getElementById('download')
   var img = gCanvas.toDataURL('image/png')
   download.setAttribute('href', img)
+}
+
+function handleUpload(e) {
+  e.preventDefault()
+
+  // If there's no file, do nothing
+  if (!file.value.length) return
+
+  // Create a new FileReader() object
+  let reader = new FileReader()
+
+  // Setup the callback event to run when the file is read
+  reader.onload = logFile
+
+  // Read the file
+  reader.readAsDataURL(file.files[0])
+}
+
+function logFile(e) {
+  let str = e.target.result
+  let img = document.createElement('img')
+  img.src = str
+
+  createCostumMeme(str)
 }

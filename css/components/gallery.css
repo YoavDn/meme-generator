@@ -37,3 +37,20 @@
 
   padding: 0 1.4rem;
 }
+
+#upload {
+  cursor: pointer;
+  margin: auto;
+  text-align: center;
+  color: white;
+  margin-block: 3rem;
+  font-size: 1.3rem;
+  background-color: var(--brand-clr);
+  width: 150px;
+  padding: 1rem;
+  border-radius: 0.2rem;
+}
+
+#upload:hover {
+  background-color: rgb(181, 59, 59);
+}

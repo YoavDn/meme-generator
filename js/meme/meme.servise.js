@@ -95,3 +95,11 @@ function changeTextFont(value) {
 function changeTextColor(clrValue) {
   gMeme.lines[gMeme.selectedLineIdx].color = clrValue
 }
+
+function createCostumMeme(imgDataUrl) {
+  const costumMeme = Object.assign({}, gMeme, { id: Date.now(), url: imgDataUrl })
+  gMeme = costumMeme
+
+  pageNavigation(false)
+  setMeme(gMeme.id)
+}

@@ -28,6 +28,8 @@ header {
   cursor: pointer;
   margin-inline-start: 5rem;
   color: var(-main-txt-clr);
+  transition: color 0.4s;
+  transition: box-shadow 0.4s;
 }
 
 .nav-link-active {
@@ -36,4 +38,9 @@ header {
 
 .nav-link:hover {
   color: var(--brand-clr);
+}
+
+.nav-link-active {
+  color: var(--brand-clr);
+  box-shadow: inset 0px -3px var(--brand-clr);
 }
