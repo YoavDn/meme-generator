@@ -17,7 +17,7 @@ function onImgSelect(e) {
 function renderCards() {
   const elCardsContainer = document.querySelector('.gallery-container')
   const imgs = getImgs()
-  debugger
+
   elCardsContainer.innerHTML = imgs
     .map((img, idx) => {
       return `<div class="card shadow" data-img-id="${idx + 1}"><img src="${img.url}" alt="" /></div>`
