@@ -1,0 +1,23 @@
+@media screen and (max-width: 768px) {
+  .editor-section {
+    flex-direction: column;
+    height: 0;
+  }
+
+  #canvas {
+    width: 400px;
+    height: 400px;
+  }
+  .editor {
+    width: 100%;
+  }
+  .move-txt-btns {
+    margin-bottom: 5rem;
+  }
+  .main-header {
+    margin-bottom: 3rem;
+  }
+  .canvas-container {
+    margin-bottom: 3rem;
+  }
+}
