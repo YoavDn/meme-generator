@@ -17,7 +17,7 @@
         </div>
         <nav class="nav">
           <ul class="flex">
-            <li class="nav-link">Memes</li>
+            <li class="nav-link" onclick="onShowMemes()">Memes</li>
             <li class="nav-link" onclick="onShowGallery()">Gallery</li>
             <li class="nav-link">About</li>
           </ul>
@@ -98,12 +98,13 @@
           
         </div>
         <div class="save-meme editor-layout flex ">
-            <button class="save-meme-btn">Save Meme</button>
+            <button class="save-meme-btn" onclick="onSaveMeme()">Save Meme</button>
             <button class="save-meme-btn">Download as jpg</button>
           </div>
       </div>
     </section>
 
+    <script src="js/storage.js"></script>
     <script src="js/gallery/gallery.service.js"></script>
     <script src="js/meme/meme.servise.js"></script>
     <script src="js/saved-memes/saved-meme.service.js"></script>

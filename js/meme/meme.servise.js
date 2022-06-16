@@ -51,7 +51,19 @@ function setSelectLine(idx) {
 }
 
 function setMeme(imgId) {
-  gMeme.selectedImgId = imgId
+  //chack if the id is already Exists
+
+  const savedMemes = getSaveMemes()
+  const savedMeme = savedMemes.find(meme => {
+    return meme.id === +imgId
+  })
+
+  if (!savedMeme) {
+    gMeme.selectedImgId = imgId
+  } else {
+    gMeme = savedMeme
+  }
+
   init()
 }
 
@@ -71,7 +83,7 @@ function moveText(diff) {
 }
 
 function emptyElsFromMeme() {
-  gMeme.lines.length = 1
+  gMeme.lines.length = 0
   updateEditorElements(gMeme.lines.length)
   updateDomSelectedLine()
 }

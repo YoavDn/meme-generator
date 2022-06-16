@@ -4,10 +4,12 @@ var gCanvas
 var gCtx
 var lastX
 var lastY
+var gIsOnMobile = window.matchMedia('(max-width: 800px)').matches
 
 function init() {
   gCanvas = document.getElementById('canvas')
   gCtx = gCanvas.getContext('2d')
+
   renderMeme()
   handleTouchEvent(gCanvas)
 }
@@ -22,6 +24,7 @@ function handleTouchEvent(canvas) {
 
     const idx = getElIdx(lastX, lastY)
 
+    console.log(lastX, lastY)
     updateInputPlaceholder(idx)
     setSelectLine(idx)
     updateDomSelectedLine(idx)
@@ -29,9 +32,11 @@ function handleTouchEvent(canvas) {
 }
 
 function renderMeme() {
-  const meme = getMeme()
+  let meme = getMeme()
   const imgsSrc = getImgs()
   const [img] = imgsSrc.filter(img => img.id === +meme.selectedImgId)
+
+  const savedMemes = getSaveMemes()
 
   const image = new Image()
   image.onload = updateMeme
@@ -47,11 +52,17 @@ function onSelectEl(e) {
 }
 
 function updateMeme() {
-  gCanvas.width = this.naturalWidth
-  gCanvas.height = this.naturalHeight
+  let width = this.naturalWidth
+  let height = this.naturalHeight
+  if (gIsOnMobile) {
+    width = 300
+    height = 300
+  }
+  gCanvas.width = width
+  gCanvas.height = height
 
   gCtx.drawImage(this, 0, 0)
-  gCtx.drawImage(this, 0, 0, this.width, this.height)
+  gCtx.drawImage(this, 0, 0, width, height)
   drawText()
 }
 
@@ -156,4 +167,8 @@ function onChangeTextColor(value) {
 function emptyInputTxt() {
   const elTextInput = document.querySelector('.text-input')
   elTextInput.value = ''
+}
+
+function isOnMobile() {
+  console.log('hi')
 }

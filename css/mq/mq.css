@@ -3,12 +3,14 @@
     height: 0;
   }
   .editor-layout {
+    padding-top: 1rem;
+  }
+  .editor-layout {
     width: 600px;
   }
 
   .editor-section {
     flex-direction: column;
-    height: 0;
   }
 
   .text-editor {
@@ -62,5 +64,26 @@
 
   .nav-link {
     margin-inline-start: 2rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .editor-layout {
+    width: 300px;
+  }
+
+  .gallery-container {
+    gap: 1.3rem;
+  }
+  .card {
+    width: 150px;
+    height: 150px;
+  }
+  .nav-link {
+    font-size: 1.2rem;
+  }
+
+  .editor-controller {
+    margin-bottom: 2rem;
   }
 }

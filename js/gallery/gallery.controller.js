@@ -9,6 +9,7 @@ function onImgSelect(e) {
 
   elGallerySection.classList.add('hidden')
   elEditorSection.classList.remove('hidden')
+  console.log(imgId)
 
   emptyElsFromMeme()
   setImg(imgId)
