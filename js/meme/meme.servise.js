@@ -12,7 +12,7 @@ var gMeme = {
   selectedImgId: 2,
   selectedLineIdx: 0,
 
-  lines: [{ txt: 'Hellow world', size: 40, align: 'center', color: 'black', startY: 70 }],
+  lines: [{ txt: 'Hellow world', size: 40, align: 'center', font: 'impact', color: 'white', startY: 70 }],
 }
 
 function getMeme() {
@@ -30,7 +30,19 @@ function setTextCoords(idx, startX, textWidth, startY) {
 }
 
 function addTextLine() {
-  gMeme.lines.push({ txt: 'Text', size: 40, align: 'center', color: 'black', startY: 70 * (gMeme.lines.length + 1) })
+  gMeme.lines.push({
+    txt: 'Text',
+    size: 40,
+    align: 'center',
+    font: 'impact',
+    color: 'white',
+    startY: 70 * (gMeme.lines.length + 1),
+  })
+}
+
+function deleteLine() {
+  gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+  gMeme.selectedLineIdx = 0
 }
 
 function setSelectLine(idx) {
@@ -62,4 +74,12 @@ function emptyElsFromMeme() {
   gMeme.lines.length = 1
   updateEditorElements(gMeme.lines.length)
   updateDomSelectedLine()
+}
+
+function changeTextFont(value) {
+  gMeme.lines[gMeme.selectedLineIdx].font = value
+}
+
+function changeTextColor(clrValue) {
+  gMeme.lines[gMeme.selectedLineIdx].color = clrValue
 }

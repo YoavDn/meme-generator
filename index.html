@@ -51,7 +51,7 @@
               <button class="line-toolbar-item line-feature-btn" onclick="onAddLine()">
                 <i class="fa-solid fa-plus"></i>
               </button>
-              <button class="line-toolbar-item line-feature-btn" onclick="onAddLine()">
+              <button class="line-toolbar-item line-feature-btn" onclick="onDeleteLine()">
                 <i class="fa-solid fa-trash-can"></i>
               </button>
             </div>
@@ -60,10 +60,10 @@
          
           <div class="text-editor shadow flex-column">
             <div class="toolbar flex">
-              <select class="text-toolbar-item" name="font" id="">
-                <option value="">Font</option>
-                <option value="">font</option>
-                <option value="">this</option>
+              <select onchange="onUpdateFont(this.value)" class="text-toolbar-item" name="font" id="">
+                <option value="impact">Impact</option>
+                <option value="arial">Arial</option>
+                <option value="serif">Serif</option>
               </select>
               <button
                 class="text-toolbar-item toolbar-btn text-size text-size-big"
@@ -78,6 +78,10 @@
                 onclick="onUpdateFontSize(this)"
               >
                 <i class="fa-solid fa-font"></i> -
+              </button>
+              <button class="text-toolbar-item toolbar-btn">
+                <input  onchange="onChangeTextColor(this.value)" id="input-color"class="input-change-color" type="color">
+                <label  for="input-color"><i class="fa-solid fa-palette"></i></label>
               </button>
             </div>
             <input class="text-input" oninput="onUpdateMemeText(this.value)" type="text" placeholder="Text Top" />

@@ -65,3 +65,8 @@
 .text-toolbar-item {
   margin-inline-end: 1rem;
 }
+
+.input-change-color {
+  width: 0;
+  height: 0;
+}

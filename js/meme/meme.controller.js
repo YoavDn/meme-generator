@@ -61,12 +61,12 @@ function drawText() {
 
   meme.lines.forEach((line, idx) => {
     gCtx.textAlign = 'center'
-    gCtx.font = `${line.size}px impact`
-    gCtx.strokeStyle = line.color
+    gCtx.font = `${line.size}px ${line.font}`
+    gCtx.strokeStyle = 'black'
 
     gCtx.lineWidth = 4
     gCtx.strokeText(line.txt, middleX, line.startY)
-    gCtx.fillStyle = 'white'
+    gCtx.fillStyle = line.color
     gCtx.fillText(line.txt, middleX, line.startY)
 
     const textWidth = gCtx.measureText(line.txt).width + gCtx.lineWidth
@@ -84,8 +84,18 @@ function onUpdateMemeText(text) {
 function onAddLine() {
   addTextLine()
   const lineCount = getMeme().lines.length
-  updateEditorElements(lineCount)
 
+  updateEditorElements(lineCount)
+  emptyInputTxt()
+
+  renderMeme()
+}
+
+function onDeleteLine() {
+  deleteLine()
+  const lineCount = getMeme().lines.length
+  updateEditorElements(lineCount)
+  updateDomSelectedLine()
   renderMeme()
 }
 
@@ -105,7 +115,7 @@ function updateInputPlaceholder(idx) {
   const elTextInput = document.querySelector('.text-input')
 
   const meme = getMeme()
-  elTextInput.value = ''
+  emptyInputTxt()
   elTextInput.placeholder = meme.lines[idx].txt
 }
 
@@ -118,8 +128,11 @@ function onUpdateFontSize(el) {
 function updateEditorElements(linesCount) {
   document.querySelector('.lines-count').innerText = linesCount
 }
+
 function updateDomSelectedLine(idx = 0) {
-  const txt = idx + 1
+  const meme = getMeme()
+  let txt = idx + 1
+  if (meme.lines.length === 0) txt = 0
   document.querySelector('.curr-line').innerText = txt
 }
 
@@ -130,14 +143,17 @@ function onMoveText(el) {
   renderMeme()
 }
 
-function getImgSize() {
-  if (window.matchMedia('screen and (max-width:540px)').matches) {
-    return {
-      width: 400,
-    }
-    // it matches
-  } else {
-    // does not match
-    width: 500
-  }
+function onUpdateFont(value) {
+  changeTextFont(value)
+  renderMeme()
+}
+
+function onChangeTextColor(value) {
+  changeTextColor(value)
+  renderMeme()
+}
+
+function emptyInputTxt() {
+  const elTextInput = document.querySelector('.text-input')
+  elTextInput.value = ''
 }
