@@ -15,8 +15,10 @@ function getSaveMemes() {
 }
 
 function saveMeme(meme) {
-  const memeDataUrl = downloadImg()
+  const memeDataUrl = downloadDataUrl()
+
   const newMeme = Object.assign({}, meme, { id: Date.now(), url: memeDataUrl })
+  console.log(newMeme)
 
   gSavedMemes.push(newMeme)
   _saveMemesToStorage()
@@ -26,6 +28,6 @@ function _saveMemesToStorage() {
   saveToStorage(STORAGE_KEY, gSavedMemes)
 }
 
-function downloadImg() {
-  return gCanvas.toDataURL('image/png')
+function downloadDataUrl() {
+  return gCanvas.toDataURL()
 }

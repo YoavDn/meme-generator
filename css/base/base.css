@@ -21,3 +21,8 @@ button {
   cursor: pointer;
   font-family: 'Inter', sans-serif;
 }
+
+img {
+  max-width: 100%;
+  display: block;
+}

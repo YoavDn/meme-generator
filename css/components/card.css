@@ -1,10 +1,15 @@
 .card {
   width: 200px;
-  height: 200px;
+
   cursor: pointer;
 }
 
 .card img {
-  width: 100%;
-  object-fit: contain;
 }
+.card img:hover {
+  -webkit-filter: grayscale(0.5);
+}
+
+/* .card:hover {
+  filter: alpha(opacity=40);
+} */

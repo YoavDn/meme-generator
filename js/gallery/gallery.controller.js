@@ -22,7 +22,7 @@ function renderCards(imgs = getImgs()) {
 
   elCardsContainer.innerHTML = imgs
     .map((img, idx) => {
-      return `<div class="card shadow" data-img-id="${idx + 1}"><img src="${img.url}" alt="" /></div>`
+      return `<div class="card " data-img-id="${idx + 1}"><img  class="shadow"src="${img.url}" alt="" /></div>`
     })
     .join('')
 }

@@ -24,7 +24,6 @@ function handleTouchEvent(canvas) {
 
     const idx = getElIdx(lastX, lastY)
 
-    console.log(lastX, lastY)
     updateInputPlaceholder(idx)
     setSelectLine(idx)
     updateDomSelectedLine(idx)
@@ -35,8 +34,6 @@ function renderMeme() {
   let meme = getMeme()
   const imgsSrc = getImgs()
   const [img] = imgsSrc.filter(img => img.id === +meme.selectedImgId)
-
-  const savedMemes = getSaveMemes()
 
   const image = new Image()
   image.onload = updateMeme
@@ -54,15 +51,18 @@ function onSelectEl(e) {
 function updateMeme() {
   let width = this.naturalWidth
   let height = this.naturalHeight
+  console.log(gCanvas)
+
+  let heightRatio = (height * gCanvas.width) / width
+  console.log(heightRatio)
   if (gIsOnMobile) {
     width = 300
-    height = 300
   }
-  gCanvas.width = width
-  gCanvas.height = height
+  gCanvas.width = 500
+  gCanvas.height = heightRatio
 
   gCtx.drawImage(this, 0, 0)
-  gCtx.drawImage(this, 0, 0, width, height)
+  gCtx.drawImage(this, 0, 0, gCanvas.width, heightRatio)
   drawText()
 }
 
@@ -88,6 +88,11 @@ function drawText() {
 }
 
 function onUpdateMemeText(text) {
+  const { lines } = getMeme()
+  if (lines.length === 0) {
+    alert('Line is Not selected')
+    return
+  }
   updateMemeText(text)
   renderMeme()
 }
@@ -164,6 +169,17 @@ function onChangeTextColor(value) {
   renderMeme()
 }
 
+function onAddEmoji(btn) {
+  let textValue = document.querySelector('.text-input').value
+  const picker = new EmojiButton()
+  picker.togglePicker(btn)
+  picker.on('emoji', emoji => {
+    textValue += emoji
+    updateMemeText(textValue)
+    renderMeme()
+  })
+}
+
 function emptyInputTxt() {
   const elTextInput = document.querySelector('.text-input')
   elTextInput.value = ''
@@ -171,4 +187,10 @@ function emptyInputTxt() {
 
 function isOnMobile() {
   console.log('hi')
+}
+
+function downloadImg() {
+  var download = document.getElementById('download')
+  var img = gCanvas.toDataURL('image/png')
+  download.setAttribute('href', img)
 }

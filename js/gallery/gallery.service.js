@@ -19,6 +19,8 @@ var gImgs = [
   { id: 16, url: 'images/16.jpg', keyWords: ['omg', 'funny', 'star track'] },
   { id: 17, url: 'images/17.jpg', keyWords: ['putin', 'politic'] },
   { id: 18, url: 'images/18.jpg', keyWords: ['buz', 'toy story', 'funny'] },
+  { id: 19, url: 'images/19.jpg', keyWords: ['will smith'] },
+  { id: 20, url: 'images/20.jpg', keyWords: ['smart', 'funny'] },
 ]
 
 function setImg(imgId) {

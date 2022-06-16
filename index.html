@@ -7,6 +7,7 @@
     <title>MemeGen || Create your first meme today</title>
     <link rel="stylesheet" href="css/main.css" />
     <script src="https://kit.fontawesome.com/8b6b9efe1e.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js"></script>
   </head>
   <body onload="renderCards()">
     <header>
@@ -41,7 +42,7 @@
 
     <section class="editor-section flex hidden">
       <div class="canvas-container flex align-center">
-        <canvas onclick="onSelectEl(event)" id="canvas"></canvas>
+        <canvas class="shadow" onclick="onSelectEl(event)" id="canvas"></canvas>
       </div>
       <div class="editor flex-column">
         
@@ -84,6 +85,14 @@
                 <input  onchange="onChangeTextColor(this.value)" id="input-color"class="input-change-color" type="color">
                 <label   for="input-color"><i class="fa-solid fa-palette"></i></label>
               </button>
+              <button
+                class="text-toolbar-item toolbar-btn text-size add-emoji-btn"
+                
+                onclick="onAddEmoji(this)"
+              >
+               <i class="fa-solid fa-face-smile"></i>
+              </button>
+
             </div>
             <input class="text-input" oninput="onUpdateMemeText(this.value)" type="text" placeholder="Text Top" />
           </div>
@@ -99,7 +108,9 @@
         </div>
         <div class="save-meme editor-layout flex ">
             <button class="save-meme-btn" onclick="onSaveMeme()">Save Meme</button>
-            <button class="save-meme-btn">Download as jpg</button>
+             <a id="download" download="canvas.png">
+          <button class="save-meme-btn" type="button" onClick="downloadImg()">Download</button>
+        </a>
           </div>
       </div>
     </section>
