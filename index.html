@@ -44,7 +44,9 @@
         <canvas onclick="onSelectEl(event)" id="canvas"></canvas>
       </div>
       <div class="editor flex-column">
-         <div class="lines-settings flex align-center editor-layout">
+        
+        <div class="editor-layout editor-controller flex-column ">
+           <div class="lines-settings flex align-center editor-layout">
             <h2>Edit Text Lines</h2>
             <div class="lines-toolbar flex align-center">
               <h2 class="line-toolbar-item"><span class="curr-line">1</span>/ <span class="lines-count">1</span></h2>
@@ -56,7 +58,6 @@
               </button>
             </div>
           </div>
-        <div class="editor-layout editor-controller flex-column ">
          
           <div class="text-editor shadow flex-column">
             <div class="toolbar flex">
@@ -94,13 +95,20 @@
               <i class="fa-solid fa-arrow-down"></i>
             </button>
           </div>
+          
         </div>
+        <div class="save-meme editor-layout flex ">
+            <button class="save-meme-btn">Save Meme</button>
+            <button class="save-meme-btn">Download as jpg</button>
+          </div>
       </div>
     </section>
 
     <script src="js/gallery/gallery.service.js"></script>
     <script src="js/meme/meme.servise.js"></script>
+    <script src="js/saved-memes/saved-meme.service.js"></script>
     <script src="js/gallery/gallery.controller.js"></script>
     <script src="js/meme/meme.controller.js"></script>
+    <script src="js/saved-memes/saved-meme.controller.js"></script>
   </body>
 </html>

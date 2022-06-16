@@ -1,7 +1,11 @@
 @media screen and (max-width: 768px) {
+  .editor-section {
+    height: 0;
+  }
   .editor-layout {
     width: 600px;
   }
+
   .editor-section {
     flex-direction: column;
     height: 0;
@@ -11,9 +15,8 @@
     flex-basis: 70%;
   }
   .editor-controller {
-    flex-direction: row;
-    margin-bottom: 3rem;
     justify-content: space-between;
+    margin-top: 0;
   }
   .move-txt-btns {
     flex-basis: 30%;
@@ -37,6 +40,13 @@
   }
   .canvas-container {
     margin-bottom: 3rem;
+  }
+
+  .move-txt-btns {
+    margin: auto;
+    margin-top: 3rem;
+    width: 70%;
+    justify-content: space-evenly;
   }
 }
 

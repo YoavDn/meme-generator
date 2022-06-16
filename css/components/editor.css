@@ -1,6 +1,11 @@
 .editor {
   background-color: var(--editor-bg);
   border: solid rgb(203, 203, 203) 1px;
+  justify-content: flex-start;
+}
+
+.editor-controller {
+  flex-basis: 90%;
 }
 
 .move-txt-btns {
@@ -16,4 +21,16 @@
   border: none;
   color: white;
   padding: 2rem;
+}
+.save-meme {
+  justify-content: space-between;
+}
+
+.save-meme-btn {
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  width: 130px;
+  color: white;
+  border: none;
+  background-color: var(--brand-clr);
 }
