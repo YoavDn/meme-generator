@@ -19,6 +19,23 @@ function getMeme() {
   return gMeme
 }
 
+function setMeme(imgId) {
+  const savedMemes = getSaveMemes()
+  //chack if the id is already Exists
+  const savedMeme = savedMemes.find(meme => {
+    return meme.id === +imgId
+  })
+
+  if (!savedMeme) {
+    //
+    gMeme.selectedImgId = imgId
+  } else {
+    gMeme = savedMeme
+  }
+
+  init()
+}
+
 function updateMemeText(text) {
   gMeme.lines[gMeme.selectedLineIdx].txt = text
 }
@@ -50,23 +67,6 @@ function setSelectLine(idx) {
   gMeme.selectedLineIdx = idx
 }
 
-function setMeme(imgId) {
-  //chack if the id is already Exists
-
-  const savedMemes = getSaveMemes()
-  const savedMeme = savedMemes.find(meme => {
-    return meme.id === +imgId
-  })
-
-  if (!savedMeme) {
-    gMeme.selectedImgId = imgId
-  } else {
-    gMeme = savedMeme
-  }
-
-  init()
-}
-
 function updateTextSize(diff) {
   const newSize = diff === 'big' ? 2 : -2
 
@@ -84,7 +84,7 @@ function moveText(diff) {
 
 function emptyElsFromMeme() {
   gMeme.lines.length = 0
-  updateEditorElements(gMeme.lines.length)
+  updateDomLineCount(gMeme.lines.length)
   updateDomSelectedLine()
 }
 

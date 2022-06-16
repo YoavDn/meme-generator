@@ -51,17 +51,16 @@ function onSelectEl(e) {
 function updateMeme() {
   let width = this.naturalWidth
   let height = this.naturalHeight
-  console.log(gCanvas)
 
-  let heightRatio = (height * gCanvas.width) / width
-  console.log(heightRatio)
+  let heightRatio = (height * gCanvas.width) / width // calculate height ratio
+
   if (gIsOnMobile) {
     width = 300
   }
+
   gCanvas.width = 500
   gCanvas.height = heightRatio
 
-  gCtx.drawImage(this, 0, 0)
   gCtx.drawImage(this, 0, 0, gCanvas.width, heightRatio)
   drawText()
 }
@@ -71,6 +70,8 @@ function drawText() {
   const middleX = gCanvas.width / 2
 
   meme.lines.forEach((line, idx) => {
+    //updateing all text lines setting
+
     gCtx.textAlign = 'center'
     gCtx.font = `${line.size}px ${line.font}`
     gCtx.strokeStyle = 'black'
@@ -101,7 +102,7 @@ function onAddLine() {
   addTextLine()
   const lineCount = getMeme().lines.length
 
-  updateEditorElements(lineCount)
+  updateDomLineCount(lineCount)
   emptyInputTxt()
 
   renderMeme()
@@ -110,7 +111,7 @@ function onAddLine() {
 function onDeleteLine() {
   deleteLine()
   const lineCount = getMeme().lines.length
-  updateEditorElements(lineCount)
+  updateDomLineCount(lineCount)
   updateDomSelectedLine()
   renderMeme()
 }
@@ -141,7 +142,7 @@ function onUpdateFontSize(el) {
   renderMeme()
 }
 
-function updateEditorElements(linesCount) {
+function updateDomLineCount(linesCount) {
   document.querySelector('.lines-count').innerText = linesCount
 }
 

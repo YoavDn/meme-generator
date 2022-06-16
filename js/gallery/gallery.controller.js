@@ -1,15 +1,9 @@
 'use strict'
 
 function onImgSelect(e) {
-  const elGallerySection = document.querySelector('.gallery-section')
-  const elEditorSection = document.querySelector('.editor-section')
-
-  if (e.target.parentElement.classList[0] !== 'card') return
+  if (e.target.parentElement.classList[0] !== 'card') return // when click is not on the card
   const imgId = e.target.parentElement.dataset.imgId
-
-  elGallerySection.classList.add('hidden')
-  elEditorSection.classList.remove('hidden')
-  console.log(imgId)
+  pageNavigation(false)
 
   emptyElsFromMeme()
   setImg(imgId)
@@ -17,8 +11,6 @@ function onImgSelect(e) {
 
 function renderCards(imgs = getImgs()) {
   const elCardsContainer = document.querySelector('.gallery-container')
-
-  // const imgs = getImgs()
 
   elCardsContainer.innerHTML = imgs
     .map((img, idx) => {
@@ -28,11 +20,7 @@ function renderCards(imgs = getImgs()) {
 }
 
 function onShowGallery() {
-  const elGallerySection = document.querySelector('.gallery-section')
-  const elEditorSection = document.querySelector('.editor-section')
-
-  elGallerySection.classList.remove('hidden')
-  elEditorSection.classList.add('hidden')
+  pageNavigation(true)
   emptyElsFromMeme()
   renderCards()
 }
@@ -48,7 +36,18 @@ function onSearch(e) {
   if (filteredCards === null) {
     alert("couldn't find meme")
   } else {
-    console.log(filteredCards)
     renderCards(filteredCards)
+  }
+}
+
+function pageNavigation(isToGallery) {
+  const elGallerySection = document.querySelector('.gallery-section')
+  const elEditorSection = document.querySelector('.editor-section')
+  if (isToGallery) {
+    elGallerySection.classList.remove('hidden')
+    elEditorSection.classList.add('hidden')
+  } else {
+    elGallerySection.classList.add('hidden')
+    elEditorSection.classList.remove('hidden')
   }
 }
