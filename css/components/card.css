@@ -4,12 +4,6 @@
   cursor: pointer;
 }
 
-.card img {
-}
 .card img:hover {
   -webkit-filter: grayscale(0.5);
 }
-
-/* .card:hover {
-  filter: alpha(opacity=40);
-} */

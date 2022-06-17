@@ -73,6 +73,8 @@
   }
 
   .gallery-container {
+    grid-template-columns: repeat(auto-fit, 150px);
+
     gap: 1.3rem;
   }
   .card {

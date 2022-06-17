@@ -1,5 +1,6 @@
 header {
   /* border-bottom: solid var(--main-txt-clr) 1px; */
+
   box-shadow: 0px 1px 0px #dbdbdb;
 }
 
@@ -7,10 +8,12 @@ header {
   font-size: 2.5rem;
   margin-inline-start: 1rem;
   color: var(-main-txt-clr);
+  cursor: pointer;
 }
 
 .logo-svg {
   width: 30px;
+  cursor: pointer;
 }
 
 .main-header {
@@ -21,7 +24,7 @@ header {
 
 .nav {
   font-size: 1.6rem;
-  line-height: 5rem;
+  line-height: 5vh;
 }
 
 .nav-link {

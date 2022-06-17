@@ -6,7 +6,6 @@ var lastX
 var lastY
 var gIsOnMobile = window.matchMedia('(max-width: 800px)').matches
 var gIsDrag = false
-
 function init() {
   gCanvas = document.getElementById('canvas')
   gCtx = gCanvas.getContext('2d')
@@ -16,7 +15,7 @@ function init() {
   gCanvas.ontouchend = isUp
 
   //hengle drag and drop
-  myLocationOnCanvas(gCanvas)
+  tryDrag(gCanvas)
   gCanvas.onmouseup = isUp
 }
 
@@ -78,17 +77,18 @@ function updateMeme() {
 
   gCtx.drawImage(this, 0, 0, gCanvas.width, gCanvas.height)
 
+  drawBountries(gCtx)
   drawText()
 }
 
 function drawText() {
   const meme = getMeme()
-  const middleX = gCanvas.width / 2
 
   meme.lines.forEach((line, idx) => {
     //updateing all text lines setting
 
-    gCtx.textAlign = 'center'
+    gCtx.textAlign = line.align
+
     gCtx.font = `${line.size}px ${line.font}`
     gCtx.strokeStyle = 'black'
 
@@ -102,6 +102,21 @@ function drawText() {
     //update text postion on canvas
     setTextCoords(idx, line.startX, textWidth, line.startY)
   })
+}
+
+function drawBountries(ctx) {
+  const lineIdx = getMeme().selectedLineIdx
+  const { startX, startY, size, textWidth } = getMeme().lines[lineIdx]
+
+  const spacing = {
+    x: startX - 5,
+    y: startY - size,
+    height: size + 5,
+    width: textWidth + 5,
+  }
+  ctx.lineWidth = 1
+  ctx.strokeStyle = '#EBEBEB'
+  ctx.strokeRect(spacing.x, spacing.y, spacing.width, spacing.height)
 }
 
 function onUpdateMemeText(text) {
@@ -237,7 +252,7 @@ function logFile(e) {
   createCostumMeme(str)
 }
 
-function myLocationOnCanvas(canvas) {
+function tryDrag(canvas) {
   canvas.onmousedown = function (e) {
     const elIdx = getElIdx(e.offsetX, e.offsetY)
     if (elIdx !== null) {
@@ -259,19 +274,21 @@ function isUp(canvas) {
 
 function myMove(e) {
   e.preventDefault()
-  if (gIsDrag) {
-    const rect = this.getBoundingClientRect()
-    let x
-    let y
-    if (gIsOnMobile) {
-      x = e.touches[0].clientX - rect.left
-      y = e.touches[0].clientY - rect.top
-    } else {
-      x = e.offsetX
-      y = e.offsetY
-    }
 
-    updateTextPos(x, y)
-    renderMeme()
+  if (!gIsDrag) return
+
+  const rect = this.getBoundingClientRect()
+  let x
+  let y
+
+  if (gIsOnMobile) {
+    x = e.touches[0].clientX - rect.left
+    y = e.touches[0].clientY - rect.top
+  } else {
+    x = e.offsetX
+    y = e.offsetY
   }
+
+  updateTextPos(x, y, this)
+  renderMeme()
 }

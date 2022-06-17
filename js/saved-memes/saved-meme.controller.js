@@ -12,11 +12,13 @@ function onShowMemes() {
   const elNavlinkGallery = document.querySelector('.gallery-link')
   const elGallerySection = document.querySelector('.gallery-section')
   const elEditorSection = document.querySelector('.editor-section')
+  const elSearch = document.querySelector('.search-container')
 
   elGallerySection.classList.remove('hidden')
   elEditorSection.classList.add('hidden')
   elNavlinkGallery.classList.remove('nav-link-active')
   elNavlinkMemes.classList.add('nav-link-active')
+  elSearch.classList.add('hidden')
 
   renderSavedMemes()
 }

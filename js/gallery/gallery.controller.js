@@ -45,12 +45,13 @@ function pageNavigation(isToGallery) {
   const elEditorSection = document.querySelector('.editor-section')
   const elNavlinkMemes = document.querySelector('.memes-link')
   const elNavlinkGallery = document.querySelector('.gallery-link')
-
+  const elSearch = document.querySelector('.search-container')
   if (isToGallery) {
     elGallerySection.classList.remove('hidden')
     elEditorSection.classList.add('hidden')
     elNavlinkGallery.classList.add('nav-link-active')
     elNavlinkMemes.classList.remove('nav-link-active')
+    elSearch.classList.remove('hidden')
   } else {
     elGallerySection.classList.add('hidden')
     elEditorSection.classList.remove('hidden')

@@ -36,7 +36,7 @@ function filterCardsBySearch(query) {
     return card.keyWords.some(word => word === query)
   })
 
-  if (filteredCards.length === 0) return null
+  if (filteredCards.length === 0) return renderCards()
 
   return filteredCards
 }

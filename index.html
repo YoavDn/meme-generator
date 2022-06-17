@@ -27,19 +27,24 @@
     </header>
 
     <section class="gallery-section">
-          <form  class="shadow"id="upload">
+      
+        <form  class="shadow"id="upload">
 	          <label for="file">Upload <span><i class="fa-solid fa-arrow-up-from-bracket"></i></span></label>
 	          <input type="file" id="file"  onchange="handleUpload(event)" accept="image/*">
         </form>
 
-      <h2 class="search-title">Search popular tamplates</h2>
+        <div class="search-container">
+ <h2 class="search-title">Search popular tamplates</h2>
   
       <form onsubmit="onSearch(event)" class="search-form flex">
         <input type="search" placeholder="Search..." class="input-search" />
         <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
+        </div>
+     
+       
 
-      <div  onclick="onImgSelect(event)" class="gallery-container flex">
+      <div  onclick="onImgSelect(event)" class="gallery-container">
         <!-- <div class="card" data-img-id="1"><img src="images/1.jpg" alt="" /></div>
         <div class="card" data-img-id="2"><img src="images/2.jpg" alt="" /></div>
         <div class="card" data-img-id="3"><img src="images/3.jpg" alt="" /></div> -->

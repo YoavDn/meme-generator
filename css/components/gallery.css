@@ -1,12 +1,21 @@
 .gallery-section {
-  margin: auto;
   width: 90%;
+  margin: auto;
 }
 
-.gallery-container {
+/* .gallery-container {
   justify-content: center;
   flex-wrap: wrap;
   gap: 4rem;
+  margin-bottom: 3rem;
+} */
+
+.gallery-container {
+  display: grid;
+  justify-content: center;
+
+  grid-template-columns: repeat(auto-fit, 200px);
+  gap: 3rem;
   margin-bottom: 3rem;
 }
 

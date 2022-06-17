@@ -12,7 +12,7 @@ var gMeme = {
   selectedImgId: 2,
   selectedLineIdx: 0,
 
-  lines: [{ txt: 'Hellow world', size: 40, align: 'center', font: 'impact', color: 'white', startY: 70, startX: 100 }],
+  lines: [{ txt: 'Enter text', size: 40, align: 'left', font: 'impact', color: 'white', startY: 70, startX: 214 }],
 }
 
 function getMeme() {
@@ -48,9 +48,9 @@ function setTextCoords(idx, startX, textWidth, startY) {
 
 function addTextLine() {
   gMeme.lines.push({
-    txt: 'Text',
+    txt: 'Enter text',
     size: 40,
-    align: 'center',
+    align: 'left',
     font: 'impact',
     color: 'white',
     startY: 70 * (gMeme.lines.length + 1),
@@ -87,6 +87,7 @@ function emptyElsFromMeme() {
   gMeme.lines.length = 0
   updateDomLineCount(gMeme.lines.length)
   updateDomSelectedLine()
+  addTextLine()
 }
 
 function changeTextFont(value) {
@@ -105,12 +106,13 @@ function createCostumMeme(imgDataUrl) {
   setMeme(gMeme.id)
 }
 
-function updateTextPos(x, y) {
-  let { startX, startY } = gMeme.lines[gMeme.selectedLineIdx]
+function updateTextPos(x, y, canvas) {
+  let { textWidth, startX, startY, size } = gMeme.lines[gMeme.selectedLineIdx]
 
-  let xDistance = x - startX
-  let yDistance = y - startY
+  //options the text in the middle of the cursor
+  let newPosX = x - startX - textWidth / 2
+  let newPosY = y - startY + size / 2
 
-  gMeme.lines[gMeme.selectedLineIdx].startY += yDistance
-  gMeme.lines[gMeme.selectedLineIdx].startX += xDistance
+  gMeme.lines[gMeme.selectedLineIdx].startX += newPosX
+  gMeme.lines[gMeme.selectedLineIdx].startY += newPosY
 }
