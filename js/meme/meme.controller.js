@@ -6,11 +6,13 @@ var lastX
 var lastY
 var gIsOnMobile = window.matchMedia('(max-width: 800px)').matches
 var gIsDrag = false
+
 function init() {
   gCanvas = document.getElementById('canvas')
   gCtx = gCanvas.getContext('2d')
 
   renderMeme()
+
   handleTouchEvent(gCanvas)
   gCanvas.ontouchend = isUp
 
@@ -32,7 +34,7 @@ function handleTouchEvent(canvas) {
       gIsDrag = true
 
       setSelectLine(idx)
-      updateInputPlaceholder(idx)
+      updateInputValue(idx)
       updateDomSelectedLine(idx)
 
       canvas.ontouchmove = myMove
@@ -57,7 +59,7 @@ function renderMeme() {
 
 function onSelectEl(e) {
   const idx = getElIdx(e.offsetX, e.offsetY)
-  updateInputPlaceholder(idx)
+  updateInputValue(idx)
   setSelectLine(idx)
   updateDomSelectedLine(idx)
   renderMeme()
@@ -162,13 +164,14 @@ function getElIdx(x, y) {
   return elIdx === -1 ? null : elIdx
 }
 
-function updateInputPlaceholder(idx) {
+function updateInputValue(idx) {
   if (idx === null) return
   const elTextInput = document.querySelector('.text-input')
 
   const meme = getMeme()
   emptyInputTxt()
-  elTextInput.placeholder = meme.lines[idx].txt
+
+  elTextInput.value = meme.lines[idx].txt
 }
 
 function onUpdateFontSize(el) {

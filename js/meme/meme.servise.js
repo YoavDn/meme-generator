@@ -83,7 +83,7 @@ function updateTextSize(diff) {
 
 function emptyElsFromMeme() {
   gMeme.lines.length = 0
-  updateDomLineCount(gMeme.lines.length)
+  updateDomLineCount(gMeme.lines.length + 1)
   updateDomSelectedLine()
   addTextLine()
 }

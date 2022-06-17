@@ -9,22 +9,6 @@ function onSaveMeme() {
   saveMeme(meme)
 }
 
-function onShowMemes() {
-  const elNavlinkMemes = document.querySelector('.memes-link')
-  const elNavlinkGallery = document.querySelector('.gallery-link')
-  const elGallerySection = document.querySelector('.gallery-section')
-  const elEditorSection = document.querySelector('.editor-section')
-  const elSearch = document.querySelector('.search-container')
-
-  elGallerySection.classList.remove('hidden')
-  elEditorSection.classList.add('hidden')
-  elNavlinkGallery.classList.remove('nav-link-active')
-  elNavlinkMemes.classList.add('nav-link-active')
-  elSearch.classList.add('hidden')
-
-  renderSavedMemes()
-}
-
 function renderSavedMemes(imgs = getSaveMemes()) {
   const elCardsContainer = document.querySelector('.gallery-container')
 
@@ -43,4 +27,27 @@ function showMsg() {
   setTimeout(() => {
     elMsg.classList.remove('show-msg')
   }, 3000)
+}
+
+function onDeleteAll() {
+  deleteAllSavedMemes()
+  renderSavedMemes()
+}
+
+function onShowMemes() {
+  const elNavlinkMemes = document.querySelector('.memes-link')
+  const elNavlinkGallery = document.querySelector('.gallery-link')
+  const elGallerySection = document.querySelector('.gallery-section')
+  const elEditorSection = document.querySelector('.editor-section')
+  const elSearch = document.querySelector('.search-container')
+  const elDeleteAllBtn = document.querySelector('.delete-saved-memes')
+
+  elGallerySection.classList.remove('hidden')
+  elEditorSection.classList.add('hidden')
+  elNavlinkGallery.classList.remove('nav-link-active')
+  elNavlinkMemes.classList.add('nav-link-active')
+  elSearch.classList.add('hidden')
+  elDeleteAllBtn.classList.remove('hidden')
+
+  renderSavedMemes()
 }

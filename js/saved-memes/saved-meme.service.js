@@ -31,3 +31,7 @@ function _saveMemesToStorage() {
 function downloadDataUrl() {
   return gCanvas.toDataURL()
 }
+
+function deleteAllSavedMemes() {
+  localStorage.removeItem(STORAGE_KEY)
+}

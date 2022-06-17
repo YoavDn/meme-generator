@@ -48,18 +48,40 @@
 }
 
 #upload {
-  cursor: pointer;
   margin: auto;
   text-align: center;
   color: white;
   margin-block: 3rem;
   font-size: 1.3rem;
-  background-color: var(--brand-clr);
-  width: 150px;
+
+  width: 130px;
   padding: 1rem;
-  border-radius: 0.2rem;
+  border-radius: 0.4rem;
+}
+.upload-input {
+  color: var(--main-txt-clr);
+  padding: 1rem;
+  width: 150px;
+  cursor: pointer;
 }
 
-#upload:hover {
-  background-color: rgb(181, 59, 59);
+.upload-input:hover {
+  color: var(--brand-clr);
+}
+
+.delete-saved-memes {
+  width: 90%;
+}
+
+.delete-all {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  color: var(--main-txt-clr);
+  background-color: white;
+  border: none;
+  box-shadow: 0px 0.3px 1px var(--main-txt-clr);
+}
+
+.delete-all:hover {
+  color: var(--brand-clr);
 }

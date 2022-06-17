@@ -46,12 +46,15 @@ function pageNavigation(isToGallery) {
   const elNavlinkMemes = document.querySelector('.memes-link')
   const elNavlinkGallery = document.querySelector('.gallery-link')
   const elSearch = document.querySelector('.search-container')
+  const elDeleteAllBtn = document.querySelector('.delete-saved-memes')
+
   if (isToGallery) {
     elGallerySection.classList.remove('hidden')
     elEditorSection.classList.add('hidden')
     elNavlinkGallery.classList.add('nav-link-active')
     elNavlinkMemes.classList.remove('nav-link-active')
     elSearch.classList.remove('hidden')
+    elDeleteAllBtn.classList.add('hidden')
   } else {
     elGallerySection.classList.add('hidden')
     elEditorSection.classList.remove('hidden')
