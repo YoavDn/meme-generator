@@ -12,7 +12,7 @@ var gMeme = {
   selectedImgId: 2,
   selectedLineIdx: 0,
 
-  lines: [{ txt: 'Hellow world', size: 40, align: 'center', font: 'impact', color: 'white', startY: 70 }],
+  lines: [{ txt: 'Hellow world', size: 40, align: 'center', font: 'impact', color: 'white', startY: 70, startX: 100 }],
 }
 
 function getMeme() {
@@ -54,6 +54,7 @@ function addTextLine() {
     font: 'impact',
     color: 'white',
     startY: 70 * (gMeme.lines.length + 1),
+    startX: 214,
   })
 }
 
@@ -102,4 +103,14 @@ function createCostumMeme(imgDataUrl) {
 
   pageNavigation(false)
   setMeme(gMeme.id)
+}
+
+function updateTextPos(x, y) {
+  let { startX, startY } = gMeme.lines[gMeme.selectedLineIdx]
+
+  let xDistance = x - startX
+  let yDistance = y - startY
+
+  gMeme.lines[gMeme.selectedLineIdx].startY += yDistance
+  gMeme.lines[gMeme.selectedLineIdx].startX += xDistance
 }

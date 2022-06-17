@@ -5,6 +5,7 @@ var gCtx
 var lastX
 var lastY
 var gIsOnMobile = window.matchMedia('(max-width: 800px)').matches
+let isDrag = true
 
 function init() {
   gCanvas = document.getElementById('canvas')
@@ -12,6 +13,10 @@ function init() {
 
   renderMeme()
   handleTouchEvent(gCanvas)
+
+  //hengle drag and drop
+  myLocationOnCanvas(gCanvas)
+  gCanvas.onmouseup = isUp
 }
 
 function handleTouchEvent(canvas) {
@@ -80,14 +85,14 @@ function drawText() {
     gCtx.strokeStyle = 'black'
 
     gCtx.lineWidth = 4
-    gCtx.strokeText(line.txt, middleX, line.startY)
+    gCtx.strokeText(line.txt, line.startX, line.startY)
     gCtx.fillStyle = line.color
-    gCtx.fillText(line.txt, middleX, line.startY)
+    gCtx.fillText(line.txt, line.startX, line.startY)
 
     const textWidth = gCtx.measureText(line.txt).width + gCtx.lineWidth
-    const startX = middleX - textWidth / 2
+
     //update text postion on canvas
-    setTextCoords(idx, startX, textWidth, line.startY)
+    setTextCoords(idx, line.startX, textWidth, line.startY)
   })
 }
 
@@ -122,6 +127,7 @@ function onDeleteLine() {
 function getElIdx(x, y) {
   const meme = getMeme()
 
+  //check if click is on the text box canvas
   const elIdx = meme.lines.findIndex(line => {
     const { startX, textWidth, startY, size } = line
     return x > startX && x < startX + textWidth && y < startY && y > startY - size
@@ -221,4 +227,30 @@ function logFile(e) {
   img.src = str
 
   createCostumMeme(str)
+}
+
+function myLocationOnCanvas(canvas) {
+  canvas.onmousedown = function (e) {
+    const elIdx = getElIdx(e.offsetX, e.offsetY)
+    if (elIdx !== null) {
+      isDrag = true
+      setSelectLine(elIdx)
+
+      canvas.onmousemove = myMove
+    } else {
+      console.log('not on element')
+    }
+  }
+}
+
+function isUp(canvas) {
+  isDrag = false
+  canvas.onmousemove = null
+}
+
+function myMove(e) {
+  if (isDrag) {
+    updateTextPos(e.offsetX, e.offsetY)
+    renderMeme()
+  }
 }

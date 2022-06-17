@@ -34,3 +34,7 @@
   border: none;
   background-color: var(--brand-clr);
 }
+
+.save-meme-btn:hover {
+  background-color: rgb(181, 59, 59);
+}

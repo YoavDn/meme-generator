@@ -25,8 +25,8 @@ function renderSavedMemes(imgs = getSaveMemes()) {
   const elCardsContainer = document.querySelector('.gallery-container')
 
   elCardsContainer.innerHTML = imgs
-    .map((img, idx) => {
-      return `<div class="card shadow" data-img-id="${img.id}"><img class="shadow" src="${img.url}" alt="" /></div>`
+    .map(img => {
+      return `<div class="card" data-img-id="${img.id}"><img class="shadow" src="${img.url}" alt="" /></div>`
     })
     .join('')
 }
