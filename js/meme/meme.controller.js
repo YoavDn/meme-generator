@@ -5,7 +5,7 @@ var gCtx
 var lastX
 var lastY
 var gIsOnMobile = window.matchMedia('(max-width: 800px)').matches
-let isDrag = true
+var gIsDrag = false
 
 function init() {
   gCanvas = document.getElementById('canvas')
@@ -13,6 +13,7 @@ function init() {
 
   renderMeme()
   handleTouchEvent(gCanvas)
+  gCanvas.ontouchend = isUp
 
   //hengle drag and drop
   myLocationOnCanvas(gCanvas)
@@ -21,7 +22,6 @@ function init() {
 
 function handleTouchEvent(canvas) {
   canvas.ontouchstart = function (e) {
-    e.preventDefault()
     let rect = this.getBoundingClientRect()
 
     lastX = e.touches[0].clientX - rect.left
@@ -29,9 +29,17 @@ function handleTouchEvent(canvas) {
 
     const idx = getElIdx(lastX, lastY)
 
-    updateInputPlaceholder(idx)
-    setSelectLine(idx)
-    updateDomSelectedLine(idx)
+    if (idx !== null) {
+      gIsDrag = true
+
+      setSelectLine(idx)
+      updateInputPlaceholder(idx)
+      updateDomSelectedLine(idx)
+
+      canvas.ontouchmove = myMove
+    } else {
+      console.log('not on element')
+    }
   }
 }
 
@@ -233,7 +241,7 @@ function myLocationOnCanvas(canvas) {
   canvas.onmousedown = function (e) {
     const elIdx = getElIdx(e.offsetX, e.offsetY)
     if (elIdx !== null) {
-      isDrag = true
+      gIsDrag = true
       setSelectLine(elIdx)
 
       canvas.onmousemove = myMove
@@ -244,13 +252,26 @@ function myLocationOnCanvas(canvas) {
 }
 
 function isUp(canvas) {
-  isDrag = false
+  gIsDrag = false
   canvas.onmousemove = null
+  canvas.ontouchend = null
 }
 
 function myMove(e) {
-  if (isDrag) {
-    updateTextPos(e.offsetX, e.offsetY)
+  e.preventDefault()
+  if (gIsDrag) {
+    const rect = this.getBoundingClientRect()
+    let x
+    let y
+    if (gIsOnMobile) {
+      x = e.touches[0].clientX - rect.left
+      y = e.touches[0].clientY - rect.top
+    } else {
+      x = e.offsetX
+      y = e.offsetY
+    }
+
+    updateTextPos(x, y)
     renderMeme()
   }
 }
