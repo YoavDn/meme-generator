@@ -60,6 +60,7 @@ function onSelectEl(e) {
   updateInputPlaceholder(idx)
   setSelectLine(idx)
   updateDomSelectedLine(idx)
+  renderMeme()
 }
 
 function updateMeme() {
@@ -105,8 +106,10 @@ function drawText() {
 }
 
 function drawBountries(ctx) {
-  const lineIdx = getMeme().selectedLineIdx
-  const { startX, startY, size, textWidth } = getMeme().lines[lineIdx]
+  const { selectedLineIdx, isEdit } = getMeme()
+  if (!isEdit) return
+
+  const { startX, startY, size, textWidth } = getMeme().lines[selectedLineIdx]
 
   const spacing = {
     x: startX - 5,
@@ -218,10 +221,6 @@ function emptyInputTxt() {
   elTextInput.value = ''
 }
 
-function isOnMobile() {
-  console.log('hi')
-}
-
 function downloadImg() {
   var download = document.getElementById('download')
   var img = gCanvas.toDataURL('image/png')
@@ -289,6 +288,6 @@ function myMove(e) {
     y = e.offsetY
   }
 
-  updateTextPos(x, y, this)
+  updateTextPos(x, y)
   renderMeme()
 }
