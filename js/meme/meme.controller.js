@@ -19,6 +19,12 @@ function init() {
   //hengle drag and drop
   tryDrag(gCanvas)
   gCanvas.onmouseup = isUp
+
+  //focus input text
+  gCanvas.addEventListener('dblclick', e => {
+    onSelectEl(e)
+    document.querySelector('.text-input').focus()
+  })
 }
 
 function handleTouchEvent(canvas) {
@@ -30,17 +36,15 @@ function handleTouchEvent(canvas) {
 
     const idx = getElIdx(lastX, lastY)
 
-    if (idx !== null) {
-      gIsDrag = true
+    if (idx === null) return // when click is not on text
 
-      setSelectLine(idx)
-      updateInputValue(idx)
-      updateDomSelectedLine(idx)
+    gIsDrag = true
 
-      canvas.ontouchmove = myMove
-    } else {
-      console.log('not on element')
-    }
+    setSelectLine(idx)
+    updateInputValue(idx)
+    updateDomSelectedLine(idx)
+
+    canvas.ontouchmove = myMove
   }
 }
 
@@ -250,14 +254,13 @@ function logFile(e) {
 function tryDrag(canvas) {
   canvas.onmousedown = function (e) {
     const elIdx = getElIdx(e.offsetX, e.offsetY)
-    if (elIdx !== null) {
-      gIsDrag = true
-      setSelectLine(elIdx)
 
-      canvas.onmousemove = myMove
-    } else {
-      console.log('not on element')
-    }
+    if (elIdx === null) return // when click not on text
+
+    gIsDrag = true
+    setSelectLine(elIdx)
+
+    canvas.onmousemove = myMove
   }
 }
 

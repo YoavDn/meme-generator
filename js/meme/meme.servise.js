@@ -13,7 +13,17 @@ var gMeme = {
   selectedLineIdx: 0,
   isEdit: false,
 
-  lines: [{ txt: 'Enter text', size: 40, align: 'left', font: 'impact', color: 'white', startY: 70, startX: 214 }],
+  lines: [
+    {
+      txt: 'Enter text',
+      size: 40,
+      align: 'left',
+      font: 'impact',
+      color: 'white',
+      startY: 70,
+      startX: 100,
+    },
+  ],
 }
 
 function getMeme() {
@@ -55,7 +65,7 @@ function addTextLine() {
     font: 'impact',
     color: 'white',
     startY: 70 * (gMeme.lines.length + 1),
-    startX: 214,
+    startX: 100,
   })
 }
 
