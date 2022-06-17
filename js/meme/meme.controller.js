@@ -188,13 +188,6 @@ function updateDomSelectedLine(idx = 0) {
   document.querySelector('.curr-line').innerText = txt
 }
 
-function onMoveText(el) {
-  const diff = el.dataset.moveLine
-
-  moveText(diff)
-  renderMeme()
-}
-
 function onUpdateFont(value) {
   changeTextFont(value)
   renderMeme()

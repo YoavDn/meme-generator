@@ -34,7 +34,7 @@
         </form>
 
         <div class="search-container">
- <h2 class="search-title">Search popular tamplates</h2>
+        <h2 class="search-title">Search popular tamplates</h2>
   
       <form onsubmit="onSearch(event)" class="search-form flex">
         <input type="search" placeholder="Search..." class="input-search" />
@@ -107,14 +107,7 @@
             </div>
             <input class="text-input" oninput="onUpdateMemeText(this.value)" type="text" placeholder="Text Top" />
           </div>
-          <div class="move-txt-btns flex">
-            <button data-move-line="up" class="move-txt-btn shadow" onclick="onMoveText(this)">
-              <i class="fa-solid fa-arrow-up"></i>
-            </button>
-            <button data-move-line="down" class="move-txt-btn shadow" onclick="onMoveText(this)">
-              <i class="fa-solid fa-arrow-down"></i>
-            </button>
-          </div>
+          
           
         </div>
         <div class="save-meme editor-layout flex ">
@@ -125,6 +118,10 @@
           </div>
       </div>
     </section>
+    <div class="saved-meme-msg flex align-center  shadow">
+      <h2>Meme Saved</h2>
+      <img class="logo-svg" src="/images/logo.svg" alt="">
+    </div>
 
     <script src="js/storage.js"></script>
     <script src="js/gallery/gallery.service.js"></script>

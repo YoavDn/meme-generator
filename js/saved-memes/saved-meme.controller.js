@@ -3,6 +3,8 @@
 function onSaveMeme() {
   const meme = getMeme()
 
+  showMsg()
+
   console.log('Meme saved successfully')
   saveMeme(meme)
 }
@@ -31,4 +33,14 @@ function renderSavedMemes(imgs = getSaveMemes()) {
       return `<div class="card" data-img-id="${img.id}"><img class="shadow" src="${img.url}" alt="" /></div>`
     })
     .join('')
+}
+
+function showMsg() {
+  const elMsg = document.querySelector('.saved-meme-msg')
+
+  elMsg.classList.add('show-msg')
+
+  setTimeout(() => {
+    elMsg.classList.remove('show-msg')
+  }, 3000)
 }

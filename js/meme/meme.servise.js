@@ -81,14 +81,6 @@ function updateTextSize(diff) {
   selectedLine.size += newSize
 }
 
-function moveText(diff) {
-  const newPos = diff === 'up' ? -10 : 10
-
-  const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-
-  selectedLine.startY += newPos
-}
-
 function emptyElsFromMeme() {
   gMeme.lines.length = 0
   updateDomLineCount(gMeme.lines.length)
