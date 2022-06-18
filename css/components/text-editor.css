@@ -14,7 +14,6 @@
 
 .toolbar {
   box-shadow: 0px 1px 0px #dbdbdb;
-  color: orange;
 }
 
 .toolbar select {
@@ -25,7 +24,6 @@
 
 .toolbar-btn {
   color: var(--main-txt-clr);
-
   border: none;
   width: 30px;
 }

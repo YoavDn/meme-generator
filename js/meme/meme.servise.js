@@ -38,8 +38,7 @@ function setMeme(imgId) {
   })
 
   if (!savedMeme) {
-    //
-    gMeme.selectedImgId = imgId
+    gMeme.selectedImgId = imgId // img from the gallery
   } else {
     gMeme = savedMeme
   }

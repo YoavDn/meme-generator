@@ -2,6 +2,7 @@
 
 const STORAGE_KEY = 'savedMemesDB'
 var gSavedMemes = []
+var gIsDeleteMode = false
 
 function getSaveMemes() {
   let savedMemes = loadFromStorage(STORAGE_KEY)
@@ -32,11 +33,15 @@ function downloadDataUrl() {
   return gCanvas.toDataURL()
 }
 
-function deleteAllSavedMemes() {
-  localStorage.removeItem(STORAGE_KEY)
-}
+// function deleteAllSavedMemes() {
+//   localStorage.removeItem(STORAGE_KEY)
+// }
 
-function deleteById(id) {
-  const idx = gSavedMemes.findIndex(savedMeme => savedMeme.id === id)
+function deleteById(e) {
+  const id = e.target.parentElement.dataset.imgId
+  const idx = gSavedMemes.findIndex(savedMeme => savedMeme.id === +id)
+
   gSavedMemes.splice(idx, 1)
+  _saveMemesToStorage()
+  renderSavedMemes()
 }

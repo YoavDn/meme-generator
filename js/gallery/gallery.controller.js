@@ -1,6 +1,7 @@
 'use strict'
 
 function onImgSelect(e) {
+  if (gIsDeleteMode) return
   if (e.target.parentElement.classList[0] !== 'card') return // when click is not on the card
   const imgId = e.target.parentElement.dataset.imgId
   pageNavigation(false)
@@ -20,6 +21,9 @@ function renderCards(imgs = getImgs()) {
 }
 
 function onShowGallery() {
+  gIsDeleteMode = false
+  disableDeleteMode()
+
   pageNavigation(true)
   emptyElsFromMeme()
   renderCards()

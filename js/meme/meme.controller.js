@@ -250,11 +250,11 @@ function handleUpload(e) {
 }
 
 function logFile(e) {
-  let str = e.target.result
+  let toDataUrl = e.target.result
   let img = document.createElement('img')
-  img.src = str
+  img.src = toDataUrl
 
-  createCostumMeme(str)
+  createCostumMeme(toDataUrl)
 }
 
 function tryDrag(canvas) {

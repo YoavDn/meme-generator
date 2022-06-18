@@ -1,13 +1,5 @@
 'use strict'
 
-function onDeleteSavedMeme(e) {
-  // if (e.target.parentElement.classList[0] !== 'card') return // when click is not on the card
-  const imgId = e.target.parentElement.dataset.imgId
-
-  console.log(e.target)
-  e.target.classList.add('to-delete')
-}
-
 function onSaveMeme() {
   const meme = getMeme()
 
@@ -36,12 +28,17 @@ function showMsg() {
 }
 
 function onDelete(btn) {
+  gIsDeleteMode = !gIsDeleteMode
   btn.classList.toggle('active-delete')
-  // deleteAllSavedMemes()
+  console.log(gIsDeleteMode)
 
-  const elGallery = document.querySelector('.gallery-container')
-  elGallery.addEventListener('mousemove', onDeleteSavedMeme)
-  renderSavedMemes()
+  if (gIsDeleteMode) {
+    const elGallery = document.querySelector('.gallery-container')
+    elGallery.addEventListener('click', onDeleteSavedMeme)
+  } else {
+    const elGallery = document.querySelector('.gallery-container')
+    elGallery.removeEventListener('click', onDeleteSavedMeme)
+  }
 }
 
 function onShowMemes() {
@@ -60,4 +57,15 @@ function onShowMemes() {
   elDeleteAllBtn.classList.remove('hidden')
 
   renderSavedMemes()
+}
+
+function disableDeleteMode() {
+  const elDeleteBtn = document.querySelector('.delete-meme')
+  elDeleteBtn.classList.remove('active-delete')
+}
+
+function onDeleteSavedMeme(e) {
+  console.log(e.target.parentElement)
+  if (e.target.parentElement.classList[0] !== 'card') return
+  deleteById(e)
 }
