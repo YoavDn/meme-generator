@@ -53,6 +53,8 @@ function onSearch(e) {
 }
 
 function pageNavigation(isToGallery) {
+  //handle all hidden sections and elements
+
   const elGallerySection = document.querySelector('.gallery-section')
   const elEditorSection = document.querySelector('.editor-section')
   const elGalleryLink = document.querySelector('.gallery-link')

@@ -18,9 +18,10 @@ function getSaveMemes() {
 function saveMeme(meme) {
   const memeDataUrl = downloadDataUrl()
 
+  //make cupy of gMeme and add it uniqe id
   const newMeme = Object.assign({}, meme, { id: Date.now(), url: memeDataUrl })
-  console.log(newMeme)
 
+  //save to storage
   gSavedMemes.push(newMeme)
   _saveMemesToStorage()
 }
@@ -32,10 +33,6 @@ function _saveMemesToStorage() {
 function downloadDataUrl() {
   return gCanvas.toDataURL()
 }
-
-// function deleteAllSavedMemes() {
-//   localStorage.removeItem(STORAGE_KEY)
-// }
 
 function deleteById(e) {
   const id = e.target.parentElement.dataset.imgId

@@ -255,7 +255,6 @@ function logFile(e) {
   img.src = toDataUrl
 
   createCostumMeme(toDataUrl)
-  Navigator.share(toDataUrl)
 }
 
 function tryDrag(canvas) {
@@ -275,12 +274,14 @@ function isUp(canvas) {
   gIsDrag = false
   canvas.onmousemove = null
   canvas.ontouchend = null
+  document.body.style.cursor = 'default'
 }
 
 function myMove(e) {
   e.preventDefault()
 
   if (!gIsDrag) return
+  document.body.style.cursor = 'grabbing'
 
   const rect = this.getBoundingClientRect()
   let x
