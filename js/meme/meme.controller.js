@@ -24,6 +24,7 @@ function init() {
   gCanvas.addEventListener('dblclick', e => {
     onSelectEl(e)
     document.querySelector('.text-input').focus()
+    document.querySelector('.text-input').select()
   })
 }
 
@@ -222,9 +223,14 @@ function emptyInputTxt() {
 }
 
 function downloadImg() {
-  var download = document.getElementById('download')
-  var img = gCanvas.toDataURL('image/png')
-  download.setAttribute('href', img)
+  disableEditMode()
+  renderMeme()
+
+  setTimeout(() => {
+    var download = document.getElementById('download')
+    var img = gCanvas.toDataURL('image/png')
+    download.setAttribute('href', img)
+  }, 500)
 }
 
 function handleUpload(e) {

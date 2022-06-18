@@ -124,3 +124,7 @@ function updateTextPos(x, y, canvas) {
   gMeme.lines[gMeme.selectedLineIdx].startX += newPosX
   gMeme.lines[gMeme.selectedLineIdx].startY += newPosY
 }
+
+function disableEditMode() {
+  gMeme.isEdit = false
+}
