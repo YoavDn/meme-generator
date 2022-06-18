@@ -20,13 +20,12 @@ function renderCards(imgs = getImgs()) {
     .join('')
 }
 
-function onShowGallery(link) {
+function onShowGallery() {
   const elNavLinks = document.querySelectorAll('.nav-link')
 
   elNavLinks.forEach(link => {
     link.classList.remove('nav-link-active')
   })
-  link.classList.add('nav-link-active')
 
   gIsDeleteMode = false
   disableDeleteMode()
@@ -54,7 +53,7 @@ function onSearch(e) {
 function pageNavigation(isToGallery) {
   const elGallerySection = document.querySelector('.gallery-section')
   const elEditorSection = document.querySelector('.editor-section')
-
+  const elGalleryLink = document.querySelector('.gallery-link')
   const elSearch = document.querySelector('.search-container')
   const elDeleteAllBtn = document.querySelector('.delete-saved-memes')
   const elAboutSection = document.querySelector('.about')
@@ -66,9 +65,12 @@ function pageNavigation(isToGallery) {
     elSearch.classList.remove('hidden')
     elDeleteAllBtn.classList.add('hidden')
     elAboutSection.classList.add('hidden')
+    elGalleryLink.classList.add('nav-link-active')
   } else {
     elGallerySection.classList.add('hidden')
     elEditorSection.classList.remove('hidden')
-    elAboutSection.classList.remove('hidden')
+    elGalleryLink.classList.remove('nav-link-active')
+
+    elAboutSection.classList.add('hidden')
   }
 }
