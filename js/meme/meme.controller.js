@@ -255,6 +255,7 @@ function logFile(e) {
   img.src = toDataUrl
 
   createCostumMeme(toDataUrl)
+  Navigator.share(toDataUrl)
 }
 
 function tryDrag(canvas) {
