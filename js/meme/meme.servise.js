@@ -33,9 +33,7 @@ function getMeme() {
 function setMeme(imgId) {
   const savedMemes = getSaveMemes()
   //chack if the id is already Exists
-  const savedMeme = savedMemes.find(meme => {
-    return meme.id === +imgId
-  })
+  const savedMeme = savedMemes.find(meme => meme.id === +imgId)
 
   if (!savedMeme) {
     gMeme.selectedImgId = imgId // img from the gallery
@@ -75,7 +73,7 @@ function deleteLine() {
 
 function setSelectLine(idx) {
   if (idx === null) {
-    gMeme.isEdit = false
+    gMeme.isEdit = false // remove the boundries from the selection
     return
   }
   gMeme.isEdit = true
@@ -84,7 +82,7 @@ function setSelectLine(idx) {
 }
 
 function updateTextSize(diff) {
-  const newSize = diff === 'big' ? 2 : -2
+  const newSize = diff === 'big' ? 4 : -4
 
   const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
   selectedLine.size += newSize

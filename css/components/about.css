@@ -1,0 +1,24 @@
+.about-logo {
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.about-logo img {
+  margin-inline-end: 1rem;
+}
+
+.about {
+  margin-top: 5rem;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.about-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.spooderman {
+  background: white;
+  width: 400px;
+}

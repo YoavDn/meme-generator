@@ -11,6 +11,7 @@
 @import url(components/text-editor.css);
 @import url(components/gallery.css);
 @import url(components/card.css);
+@import url(components/about.css);
 
 /* layout */
 @import url(layout/layout.css);

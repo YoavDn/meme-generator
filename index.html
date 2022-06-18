@@ -17,10 +17,10 @@
           <h2>MemeGen</h2>
         </div>
         <nav class="nav">
-          <ul class="flex">
-            <li class="nav-link gallery-link " onclick="onShowGallery()">Gallery</li>
-            <li class="nav-link memes-link" onclick="onShowMemes()">Memes</li>
-            <li class="nav-link">About</li>
+          <ul class="nav-links flex">
+            <li class="nav-link gallery-link " onclick="onShowGallery(this)">Gallery</li>
+            <li class="nav-link memes-link" onclick="onShowMemes(this)">Memes</li>
+            <li class="nav-link about-link" onclick="onShowAbout(this)">About</li>
           </ul>
         </nav>
       </div>
@@ -122,6 +122,15 @@
       </div>
     </section>
 
+    <section class="about flex-column hidden">
+      <div class=" about-logo flex align-center">
+        <img class="logo-svg" src="./images/logo.svg" alt="" class="logo">
+        <h2>MemeGen </h2>
+      </div>
+      <h2 class="about-title">We Simply loves memes</h2>
+      <img class="spooderman" src="./images/spooderman.png" alt="">
+    </section>
+
     <div class="saved-meme-msg flex align-center  shadow">
       <h2>Meme Saved</h2>
       <img class="logo-svg" src="/images/logo.svg" alt="">
@@ -134,5 +143,6 @@
     <script src="js/gallery/gallery.controller.js"></script>
     <script src="js/meme/meme.controller.js"></script>
     <script src="js/saved-memes/saved-meme.controller.js"></script>
+    <script src="js/about.js"></script>
   </body>
 </html>
