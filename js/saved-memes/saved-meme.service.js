@@ -35,3 +35,8 @@ function downloadDataUrl() {
 function deleteAllSavedMemes() {
   localStorage.removeItem(STORAGE_KEY)
 }
+
+function deleteById(id) {
+  const idx = gSavedMemes.findIndex(savedMeme => savedMeme.id === id)
+  gSavedMemes.splice(idx, 1)
+}

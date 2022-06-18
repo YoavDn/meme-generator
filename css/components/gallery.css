@@ -73,7 +73,7 @@
   width: 90%;
 }
 
-.delete-all {
+.delete-meme {
   margin-bottom: 1rem;
   padding: 1rem;
   color: var(--main-txt-clr);
@@ -83,5 +83,9 @@
 }
 
 .delete-all:hover {
+  color: var(--brand-clr);
+}
+
+.active-delete {
   color: var(--brand-clr);
 }

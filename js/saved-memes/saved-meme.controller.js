@@ -1,11 +1,17 @@
 'use strict'
 
+function onDeleteSavedMeme(e) {
+  // if (e.target.parentElement.classList[0] !== 'card') return // when click is not on the card
+  const imgId = e.target.parentElement.dataset.imgId
+
+  console.log(e.target)
+  e.target.classList.add('to-delete')
+}
+
 function onSaveMeme() {
   const meme = getMeme()
 
   showMsg()
-
-  console.log('Meme saved successfully')
   saveMeme(meme)
 }
 
@@ -29,8 +35,12 @@ function showMsg() {
   }, 3000)
 }
 
-function onDeleteAll() {
-  deleteAllSavedMemes()
+function onDelete(btn) {
+  btn.classList.toggle('active-delete')
+  // deleteAllSavedMemes()
+
+  const elGallery = document.querySelector('.gallery-container')
+  elGallery.addEventListener('mousemove', onDeleteSavedMeme)
   renderSavedMemes()
 }
 

@@ -30,3 +30,13 @@ img {
 input[type='file'] {
   display: none;
 }
+
+input[type='text'],
+input[type='button'] {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+input[type='search'] {
+  outline-color: var(--brand-clr);
+}
