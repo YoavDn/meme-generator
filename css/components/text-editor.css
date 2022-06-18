@@ -67,6 +67,9 @@
   color: var(--main-txt-clr);
   margin-inline-end: 1rem;
 }
+.text-toolbar-item:hover {
+  color: var(--brand-clr);
+}
 
 .change-color-btn label {
   cursor: pointer;
