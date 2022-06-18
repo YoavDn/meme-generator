@@ -29,14 +29,14 @@ function showMsg() {
 
 function onDelete(btn) {
   gIsDeleteMode = !gIsDeleteMode
+  const elGallery = document.querySelector('.gallery-container')
+
   btn.classList.toggle('active-delete')
-  console.log(gIsDeleteMode)
+  elGallery.classList.toggle('to-delete')
 
   if (gIsDeleteMode) {
-    const elGallery = document.querySelector('.gallery-container')
     elGallery.addEventListener('click', onDeleteSavedMeme)
   } else {
-    const elGallery = document.querySelector('.gallery-container')
     elGallery.removeEventListener('click', onDeleteSavedMeme)
   }
 }

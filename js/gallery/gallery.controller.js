@@ -21,6 +21,8 @@ function renderCards(imgs = getImgs()) {
 }
 
 function onShowGallery() {
+  const elGallery = document.querySelector('.gallery-container')
+  elGallery.classList.remove('to-delete')
   const elNavLinks = document.querySelectorAll('.nav-link')
 
   elNavLinks.forEach(link => {

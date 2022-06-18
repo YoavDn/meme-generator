@@ -76,8 +76,8 @@ function setSelectLine(idx) {
     gMeme.isEdit = false // remove the boundries from the selection
     return
   }
-  gMeme.isEdit = true
 
+  gMeme.isEdit = true
   gMeme.selectedLineIdx = idx
 }
 
