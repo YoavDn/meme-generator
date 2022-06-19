@@ -12,7 +12,7 @@ function renderSavedMemes(imgs = getSaveMemes()) {
 
   elCardsContainer.innerHTML = imgs
     .map(img => {
-      return `<div class="card" data-img-id="${img.id}"><img class="shadow" src="${img.url}" alt="" /></div>`
+      return `<div class="card" data-img-id="${img.id}"><img class="" src="${img.previewUrl}" alt="" /></div>`
     })
     .join('')
 }
@@ -31,8 +31,8 @@ function onDelete(btn) {
   gIsDeleteMode = !gIsDeleteMode
   const elGallery = document.querySelector('.gallery-container')
 
-  btn.classList.toggle('active-delete')
   elGallery.classList.toggle('to-delete')
+  btn.classList.toggle('active-delete')
 
   if (gIsDeleteMode) {
     elGallery.addEventListener('click', onDeleteSavedMeme)
@@ -53,6 +53,8 @@ function onDeleteSavedMeme(e) {
 }
 
 function onShowMemes(link) {
+  //handle hidden sections
+
   const elGallerySection = document.querySelector('.gallery-section')
   const elEditorSection = document.querySelector('.editor-section')
   const elSearch = document.querySelector('.search-container')

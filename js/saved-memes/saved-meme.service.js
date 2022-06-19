@@ -19,7 +19,7 @@ function saveMeme(meme) {
   const memeDataUrl = downloadDataUrl()
 
   //make cupy of gMeme and add it uniqe id
-  const newMeme = Object.assign({}, meme, { id: Date.now(), url: memeDataUrl })
+  const newMeme = Object.assign({}, meme, { id: Date.now(), previewUrl: memeDataUrl })
 
   //save to storage
   gSavedMemes.push(newMeme)
@@ -42,3 +42,9 @@ function deleteById(e) {
   _saveMemesToStorage()
   renderSavedMemes()
 }
+
+// function saveMemeImg(meme) {
+//   const newMeme = Object.assign({}, meme)
+//   newMeme.lines = []
+//   return newMeme
+// }

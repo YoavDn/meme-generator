@@ -14,6 +14,7 @@
 }
 
 .about-title {
+  color: var(--main-txt-clr);
   font-size: 3rem;
   margin-bottom: 2rem;
 }
