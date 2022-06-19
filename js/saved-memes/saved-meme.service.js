@@ -16,13 +16,11 @@ function getSaveMemes() {
 }
 
 function saveMeme(meme) {
-  const memeDataUrl = downloadDataUrl()
-
   //make cupy of gMeme and add it uniqe id
-  const newMeme = Object.assign({}, meme, { id: Date.now(), previewUrl: memeDataUrl })
-
+  const newMeme = getNewMeme(meme)
   //save to storage
   gSavedMemes.push(newMeme)
+  console.log(gSavedMemes)
   _saveMemesToStorage()
 }
 
@@ -48,3 +46,10 @@ function deleteById(e) {
 //   newMeme.lines = []
 //   return newMeme
 // }
+
+function getNewMeme(meme) {
+  const memeDataUrl = downloadDataUrl()
+
+  const shallowCopy = Object.assign({}, meme, { id: Date.now(), previewUrl: memeDataUrl })
+  return JSON.parse(JSON.stringify(shallowCopy))
+}
