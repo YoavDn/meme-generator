@@ -7,7 +7,7 @@ header {
 .logo h2 {
   font-size: 2.5rem;
   margin-inline-start: 1rem;
-  color: var(-main-txt-clr);
+  color: var(--main-txt-clr);
   cursor: pointer;
 }
 
@@ -30,7 +30,7 @@ header {
 .nav-link {
   cursor: pointer;
   margin-inline-start: 5rem;
-  color: var(-main-txt-clr);
+  color: var(--main-txt-clr);
   transition: color 0.4s;
   transition: box-shadow 0.4s;
 }
