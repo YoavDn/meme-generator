@@ -11,6 +11,7 @@ function init() {
   gCanvas = document.getElementById('canvas')
   gCtx = gCanvas.getContext('2d')
 
+  emptyInputTxt()
   renderMeme()
 
   handleTouchEvent(gCanvas)
