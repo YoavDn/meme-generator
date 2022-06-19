@@ -302,7 +302,10 @@ function myMove(e) {
 function shareImg() {
   disableEditMode()
   renderMeme()
-  shareCanvas()
+
+  setTimeout(() => {
+    shareCanvas()
+  }, 0)
 }
 
 async function shareCanvas() {
