@@ -16,11 +16,16 @@ function getSaveMemes() {
 }
 
 function saveMeme(meme) {
-  //make cupy of gMeme and add it uniqe id
-  const newMeme = getNewMeme(meme)
+  //make cupy of gMeme and add uniqe id
+  const newMeme = copyMeme(meme)
   //save to storage
-  gSavedMemes.push(newMeme)
+
+  gSavedMemes = _loadSavedMemes(STORAGE_KEY)
   console.log(gSavedMemes)
+  if (gSavedMemes === undefined) {
+    gSavedMemes = []
+  }
+  gSavedMemes.push(newMeme)
   _saveMemesToStorage()
 }
 
@@ -40,16 +45,12 @@ function deleteById(e) {
   _saveMemesToStorage()
   renderSavedMemes()
 }
+function _loadSavedMemes() {
+  return loadFromStorage(STORAGE_KEY)
+}
 
-// function saveMemeImg(meme) {
-//   const newMeme = Object.assign({}, meme)
-//   newMeme.lines = []
-//   return newMeme
-// }
-
-function getNewMeme(meme) {
+function copyMeme(meme) {
   const memeDataUrl = downloadDataUrl()
-
   const shallowCopy = Object.assign({}, meme, { id: Date.now(), previewUrl: memeDataUrl })
   return JSON.parse(JSON.stringify(shallowCopy))
 }

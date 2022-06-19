@@ -9,5 +9,5 @@
 }
 
 .to-delete img:hover {
-  filter: grayscale(50%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+  filter: grayscale(50%) brightness(40%) sepia(90%) hue-rotate(-50deg) saturate(400%) contrast(0.8);
 }
