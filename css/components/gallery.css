@@ -3,13 +3,6 @@
   margin: auto;
 }
 
-/* .gallery-container {
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 4rem;
-  margin-bottom: 3rem;
-} */
-
 .gallery-container {
   display: grid;
   justify-content: center;

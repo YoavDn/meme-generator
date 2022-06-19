@@ -34,7 +34,7 @@ function setMeme(imgId) {
   const savedMemes = getSaveMemes()
   //chack if the id is already Exists
   const savedMeme = savedMemes.find(meme => meme.id === +imgId)
-  console.log(savedMeme)
+
   if (!savedMeme) {
     gMeme.selectedImgId = imgId // img from the gallery
   } else {

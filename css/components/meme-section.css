@@ -26,6 +26,9 @@
   visibility: hidden;
 }
 
+.saved-meme-msg img {
+  margin-inline-start: 1rem;
+}
 .show-msg {
   opacity: 1;
   visibility: inherit;
