@@ -305,7 +305,7 @@ function shareImg() {
 
   setTimeout(() => {
     shareCanvas()
-  }, 0)
+  }, 500)
 }
 
 async function shareCanvas() {
