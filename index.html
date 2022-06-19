@@ -114,11 +114,18 @@
           
         </div>
         <div class="save-meme editor-layout flex ">
-            <button class="save-meme-btn" onclick="onSaveMeme()">Save Meme</button>
-             <a id="download" download="canvas.png">
-          <button class="save-meme-btn" type="button" onClick="downloadImg()"><span><i class="fa-solid fa-download"></i></span> Download </button>
-        </a>
+          <div class="save">
+            <button class="save-meme-btn" onclick="onSaveMeme()">Save</button>
+
           </div>
+          <div class="share-and-download">
+
+            <a id="download" download="canvas.png">
+              <button class="save-meme-btn" type="button" onClick="downloadImg()"><span><i class="fa-solid fa-download"></i></span></button>
+            </a>
+            <button class="save-meme-btn share-btn" type="button" onClick="shareImg()"><span><i class="fa-solid fa-share-nodes"></i></span></button>
+          </div>
+        </div>
       </div>
     </section>
 

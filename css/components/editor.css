@@ -8,33 +8,32 @@
   flex-basis: 90%;
 }
 
-.move-txt-btns {
-  margin: auto;
-  margin-top: 3rem;
-  width: 70%;
-  justify-content: space-evenly;
-}
-
-.move-txt-btn {
-  background-color: var(--brand-clr);
-  font-size: 1.5rem;
-  border: none;
-  color: white;
-  padding: 2rem;
-}
 .save-meme {
   justify-content: space-between;
 }
 
 .save-meme-btn {
   margin-bottom: 2rem;
-  padding: 1rem 0;
-  width: 130px;
+  /* padding: 1rem 0; */
+  height: 45px;
+  width: 45px;
   color: white;
+  background-color: var(--brand-clr);
   border: none;
+}
+.share-and-download .save-meme-btn {
+  padding: 0;
+  height: 45px;
+  border-radius: 50%;
+}
+.save .save-meme-btn {
+  width: 150px;
+  color: white;
+
   background-color: var(--brand-clr);
 }
 
 .save-meme-btn:hover {
-  background-color: rgb(181, 59, 59);
+  color: white;
+  background-color: rgb(228, 74, 74);
 }

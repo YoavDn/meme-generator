@@ -298,3 +298,22 @@ function myMove(e) {
   updateTextPos(x, y)
   renderMeme()
 }
+
+function shareImg() {
+  shareCanvas()
+}
+
+async function shareCanvas() {
+  const dataUrl = gCanvas.toDataURL()
+  const blob = await (await fetch(dataUrl)).blob()
+  const filesArray = [
+    new File([blob], 'animation.png', {
+      type: blob.type,
+      lastModified: new Date().getTime(),
+    }),
+  ]
+  const shareData = {
+    files: filesArray,
+  }
+  navigator.share(shareData)
+}
