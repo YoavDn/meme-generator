@@ -300,6 +300,8 @@ function myMove(e) {
 }
 
 function shareImg() {
+  disableEditMode()
+  renderMeme()
   shareCanvas()
 }
 
