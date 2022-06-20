@@ -77,21 +77,26 @@
           <div class="text-editor shadow flex-column">
             <div class="toolbar flex">
               <select onchange="onUpdateFont(this.value)" class="text-toolbar-item" name="font" id="">
+                <option value="" disabled selected hidden>Font</option>
                 <option value="impact">Impact</option>
                 <option value="arial">Arial</option>
                 <option value="serif">Serif</option>
               </select>
+
               <button
                 class="text-toolbar-item toolbar-btn text-size text-size-big"
+                
                 data-font="big"
                 onclick="onUpdateFontSize(this)"
+                title="increase font size"
               >
-                <i class="fa-solid fa-font"></i> +
+                <i  class="fa-solid fa-font"></i> +
               </button>
               <button
                 class="text-toolbar-item toolbar-btn text-size text-size-small"
                 data-font="small"
                 onclick="onUpdateFontSize(this)"
+                title="Decrease font size"
               >
                 <i class="fa-solid fa-font"></i> -
               </button>
